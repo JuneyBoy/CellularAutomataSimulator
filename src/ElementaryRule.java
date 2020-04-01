@@ -70,7 +70,7 @@ public class ElementaryRule extends Rule{
 		int subrule = NEIGHBORHOOD_TO_SUBRULE.get(neighborhood);
 		char relevantBit = ruleInBinary.charAt(subrule);
 		
-		if(relevantBit == 0) {
+		if(relevantBit == '1') {
 			returnCell = new EvolvedCell(CellState.ON, subrule);
 		}
 		
@@ -91,7 +91,7 @@ public class ElementaryRule extends Rule{
 		
 		StringBuilder secondLine = new StringBuilder();
 		
-		for(int i = 7; i >= 0; --i) {
+		for(int i = NUM_OF_SUBRULES - 1; i >= 0; --i) {
 			secondLine.append(" " + ruleInBinary.charAt(i) + " ");
 		}
 		
