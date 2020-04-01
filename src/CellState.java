@@ -21,7 +21,7 @@ public enum CellState {
 	}
 	
 	public String toString() {
-		return this.name();
+		return Character.toString(symbol);
 	}
 
 }
