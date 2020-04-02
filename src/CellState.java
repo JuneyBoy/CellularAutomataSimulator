@@ -8,8 +8,8 @@ public enum CellState {
 	private static final HashMap<Character, CellState> SYMBOL_TO_MAP = new HashMap<>();
 	
 	static {
-		SYMBOL_TO_MAP.put('.', OFF);
-		SYMBOL_TO_MAP.put('O', ON);
+		SYMBOL_TO_MAP.put(OFF.symbol, OFF);
+		SYMBOL_TO_MAP.put(ON.symbol, ON);
 	}
 	
 	private CellState(char symbol) {
