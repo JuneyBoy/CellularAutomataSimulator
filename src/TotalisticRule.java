@@ -22,26 +22,15 @@ public class TotalisticRule extends Rule{
 	public Cell[] getNeighborhood(int cellIdx, Generation gen, BoundaryConditions bc) {
 		
 		Cell[] neighborhood = new Cell[NEIGHBORHOOD_RADIUS];
-		/**
-		if (cellIdx == 0) {
-			neighborhood[0] = gen.getCell(gen.size() -1);
-			neighborhood[1] = gen.getCell(cellIdx);
-			neighborhood[2] = gen.getCell(cellIdx + 1);
-		}
 		
-		else if (cellIdx == (gen.size() -1)) {
-			neighborhood[0] = gen.getCell(gen.size() -1);
-			neighborhood[1] = gen.getCell(cellIdx);
-			neighborhood[2] = gen.getCell(0);
-		}
+		neighborhood[0] = bc.getNeighbor(cellIdx, cellIdx - 2, gen);
+		neighborhood[1] = bc.getNeighbor(cellIdx, cellIdx - 1, gen);
+		neighborhood[2] = bc.getNeighbor(cellIdx, cellIdx, gen);
+		neighborhood[3] = bc.getNeighbor(cellIdx, cellIdx + 1, gen);
+		neighborhood[4] = bc.getNeighbor(cellIdx, cellIdx + 2, gen);
 		
-		else {
-			neighborhood[0] = gen.getCell(cellIdx - 1);
-			neighborhood[1] = gen.getCell(cellIdx);
-			neighborhood[2] = gen.getCell(cellIdx + 1);
-		}
 		return neighborhood;
-		**/
+		
 	}
 	
 	public EvolvedCell evolve(Cell[] neighborhood) {

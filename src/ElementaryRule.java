@@ -3,6 +3,7 @@ import java.util.HashMap;
 public class ElementaryRule extends Rule{
 	
 	private final int NUM_OF_SUBRULES = 8;
+	private final int NEIGHBORHOOD_RADIUS = 3;
 	private String ruleInBinary;
 	
 	private static final CellState[] ZERO_SUBRULE = {CellState.OFF, CellState.OFF, CellState.OFF};
@@ -42,25 +43,12 @@ public class ElementaryRule extends Rule{
 	}
 	
 	public Cell[] getNeighborhood(int cellIdx, Generation gen, BoundaryConditions bc) {
-		Cell[] neighborhood = new Cell[3];
+		Cell[] neighborhood = new Cell[NEIGHBORHOOD_RADIUS];
 		
-		if (cellIdx == 0) {
-			neighborhood[0] = gen.getCell(gen.size() -1);
-			neighborhood[1] = gen.getCell(cellIdx);
-			neighborhood[2] = gen.getCell(cellIdx + 1);
-		}
+		neighborhood[0] = bc.getNeighbor(cellIdx, cellIdx - 1, gen);
+		neighborhood[1] = bc.getNeighbor(cellIdx, cellIdx, gen);
+		neighborhood[2] = bc.getNeighbor(cellIdx, cellIdx + 1, gen);
 		
-		else if (cellIdx == (gen.size() -1)) {
-			neighborhood[0] = gen.getCell(gen.size() -1);
-			neighborhood[1] = gen.getCell(cellIdx);
-			neighborhood[2] = gen.getCell(0);
-		}
-		
-		else {
-			neighborhood[0] = gen.getCell(cellIdx - 1);
-			neighborhood[1] = gen.getCell(cellIdx);
-			neighborhood[2] = gen.getCell(cellIdx + 1);
-		}
 		return neighborhood;
 		
 	}
