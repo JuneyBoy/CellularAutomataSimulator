@@ -1,0 +1,14 @@
+#TODO List for Project 2
+- [ ] Copy repo
+- [ ] Create all classes based on UML diagram
+- [ ] Write the methods for the CellState enum type
+- [ ] Write the methods for Cell.java
+- [ ] Write the methods for EvolvedCell.java
+- [ ] Write the methods for CircularBoundaryConditions.java
+- [ ] Write the methods for FixedBoundaryConditions.java
+- [ ] Write the methods for Generation.java
+- [ ] Write the methods for Rule.java
+- [ ] Write the methods for ElementaryRule.java
+- [ ] Write the methods for TotalisticRule.java
+- [ ] Write the methods for Automaton.java
+- [ ] Write the methods for AutomatonMeasurements.java
