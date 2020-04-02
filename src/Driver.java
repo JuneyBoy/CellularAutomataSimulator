@@ -2,8 +2,8 @@
 public class Driver {
 
 	public static void main(String[] args)throws InvalidRuleNumException {
-		TotalisticRule rule = new TotalisticRule(22);
-		BoundaryConditions bc = new CircularBoundaryConditions();
+		ElementaryRule rule = new ElementaryRule(1);
+		BoundaryConditions bc = new FixedBoundaryConditions(CellState.OFF, CellState.OFF);
 		Cell offCell = new Cell(CellState.OFF);
 		Cell onCell = new Cell(CellState.ON);
 		Cell[] init = {offCell, offCell, offCell, onCell, onCell, onCell, onCell, onCell, offCell, offCell, offCell};
