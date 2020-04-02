@@ -1,8 +1,8 @@
 import java.util.HashMap;
 public enum CellState {
 	
-	ON('.'), 
-	OFF('O');
+	OFF('.'), 
+	ON('O');
 	
 	private char symbol;
 	private static final HashMap<Character, CellState> SYMBOL_TO_MAP = new HashMap<>();
@@ -20,6 +20,7 @@ public enum CellState {
 		return SYMBOL_TO_MAP.get(symbol);
 	}
 	
+	@Override
 	public String toString() {
 		return Character.toString(symbol);
 	}

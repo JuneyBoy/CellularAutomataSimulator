@@ -23,11 +23,11 @@ public class TotalisticRule extends Rule{
 		
 		Cell[] neighborhood = new Cell[NEIGHBORHOOD_RADIUS];
 		
-		neighborhood[0] = bc.getNeighbor(cellIdx, cellIdx - 2, gen);
-		neighborhood[1] = bc.getNeighbor(cellIdx, cellIdx - 1, gen);
-		neighborhood[2] = bc.getNeighbor(cellIdx, cellIdx, gen);
-		neighborhood[3] = bc.getNeighbor(cellIdx, cellIdx + 1, gen);
-		neighborhood[4] = bc.getNeighbor(cellIdx, cellIdx + 2, gen);
+		neighborhood[0] = bc.getNeighbor(cellIdx, -2, gen);
+		neighborhood[1] = bc.getNeighbor(cellIdx, -1, gen);
+		neighborhood[2] = bc.getNeighbor(cellIdx, 0, gen);
+		neighborhood[3] = bc.getNeighbor(cellIdx, 1, gen);
+		neighborhood[4] = bc.getNeighbor(cellIdx, 2, gen);
 		
 		return neighborhood;
 		

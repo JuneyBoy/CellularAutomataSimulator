@@ -45,9 +45,9 @@ public class ElementaryRule extends Rule{
 	public Cell[] getNeighborhood(int cellIdx, Generation gen, BoundaryConditions bc) {
 		Cell[] neighborhood = new Cell[NEIGHBORHOOD_RADIUS];
 		
-		neighborhood[0] = bc.getNeighbor(cellIdx, cellIdx - 1, gen);
-		neighborhood[1] = bc.getNeighbor(cellIdx, cellIdx, gen);
-		neighborhood[2] = bc.getNeighbor(cellIdx, cellIdx + 1, gen);
+		neighborhood[0] = bc.getNeighbor(cellIdx, -1, gen);
+		neighborhood[1] = bc.getNeighbor(cellIdx, 0, gen);
+		neighborhood[2] = bc.getNeighbor(cellIdx, 1, gen);
 		
 		return neighborhood;
 		

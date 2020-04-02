@@ -40,7 +40,7 @@ public class Generation {
 		String returnString = "";
 		
 		for(Cell cell : cells) {
-			returnString.concat(cell.toString());
+			returnString += cell.toString();
 		}
 		return returnString;
 	}

@@ -1,9 +1,10 @@
 import java.util.List;
+import java.util.ArrayList;
 
 public class Automaton {
 	
 	private Rule rule;
-	private List<Generation> generations;
+	private List<Generation> generations = new ArrayList<Generation>();
 	private BoundaryConditions bc;
 	private int idxOfCurrentGen;
 	
