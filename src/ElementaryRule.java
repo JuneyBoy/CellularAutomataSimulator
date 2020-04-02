@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class ElementaryRule extends Rule{
@@ -15,7 +16,6 @@ public class ElementaryRule extends Rule{
 	private static final CellState[] SIX_SUBRULE = {CellState.ON, CellState.ON, CellState.OFF};
 	private static final CellState[] SEVEN_SUBRULE = {CellState.ON, CellState.ON, CellState.ON};
 	
-	
 	private static final HashMap<CellState[], Integer> NEIGHBORHOOD_TO_SUBRULE = new HashMap<>();
 	
 	static {
@@ -28,6 +28,15 @@ public class ElementaryRule extends Rule{
 		NEIGHBORHOOD_TO_SUBRULE.put(SIX_SUBRULE, 6);
 		NEIGHBORHOOD_TO_SUBRULE.put(SEVEN_SUBRULE, 7);
 	}
+	
+	private static boolean[] ZERO_SUBRULE_AS_BOOLEAN = new boolean[]{false, false, false};
+	private static boolean[] ONE_SUBRULE_AS_BOOLEAN = new boolean[]{false, false, true};
+	private static boolean[] TWO_SUBRULE_AS_BOOLEAN = new boolean[]{false, true, false};
+	private static boolean[] THREE_SUBRULE_AS_BOOLEAN = new boolean[]{false, true, true};
+	private static boolean[] FOUR_SUBRULE_AS_BOOLEAN = new boolean[]{true, false, false};
+	private static boolean[] FIVE_SUBRULE_AS_BOOLEAN = new boolean[]{true, false, true};
+	private static boolean[] SIX_SUBRULE_AS_BOOLEAN = new boolean[]{true, true, false};
+	private static boolean[] SEVEN_SUBRULE_AS_BOOLEAN = new boolean[]{true, true, true};
 	
 	public ElementaryRule(int ruleNum) throws InvalidRuleNumException{
 		super(ruleNum);
@@ -55,8 +64,36 @@ public class ElementaryRule extends Rule{
 	
 	public EvolvedCell evolve(Cell[] neighborhood) {
 		EvolvedCell returnCell;
-		int subrule = NEIGHBORHOOD_TO_SUBRULE.get(neighborhood);
-		char relevantBit = ruleInBinary.charAt(subrule);
+		int subrule = 0;
+		char relevantBit;
+		boolean[] neighborhoodAsBoolean = (new Generation(neighborhood)).getGenerationAsBooleanArray();
+		
+		if(Arrays.equals(neighborhoodAsBoolean, ZERO_SUBRULE_AS_BOOLEAN)) {
+			subrule = NEIGHBORHOOD_TO_SUBRULE.get(ZERO_SUBRULE);
+		}
+		else if(Arrays.equals(neighborhoodAsBoolean, ONE_SUBRULE_AS_BOOLEAN)) {
+			subrule = NEIGHBORHOOD_TO_SUBRULE.get(ONE_SUBRULE);
+		}
+		else if(Arrays.equals(neighborhoodAsBoolean, TWO_SUBRULE_AS_BOOLEAN)) {
+			subrule = NEIGHBORHOOD_TO_SUBRULE.get(TWO_SUBRULE);
+		}
+		else if(Arrays.equals(neighborhoodAsBoolean, THREE_SUBRULE_AS_BOOLEAN)) {
+			subrule = NEIGHBORHOOD_TO_SUBRULE.get(THREE_SUBRULE);
+		}
+		else if(Arrays.equals(neighborhoodAsBoolean, FOUR_SUBRULE_AS_BOOLEAN)) {
+			subrule = NEIGHBORHOOD_TO_SUBRULE.get(FOUR_SUBRULE);
+		}
+		else if(Arrays.equals(neighborhoodAsBoolean, FIVE_SUBRULE_AS_BOOLEAN)) {
+			subrule = NEIGHBORHOOD_TO_SUBRULE.get(FIVE_SUBRULE);
+		}
+		else if(Arrays.equals(neighborhoodAsBoolean, SIX_SUBRULE_AS_BOOLEAN)) {
+			subrule = NEIGHBORHOOD_TO_SUBRULE.get(SIX_SUBRULE);
+		}
+		else if(Arrays.equals(neighborhoodAsBoolean, SEVEN_SUBRULE_AS_BOOLEAN)) {
+			subrule = NEIGHBORHOOD_TO_SUBRULE.get(SEVEN_SUBRULE);
+		}
+		
+		relevantBit = ruleInBinary.charAt(ruleInBinary.length() - (subrule + 1));
 		
 		if(relevantBit == '1') {
 			returnCell = new EvolvedCell(CellState.ON, subrule);

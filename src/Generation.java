@@ -36,6 +36,22 @@ public class Generation {
 		return cells[idx];
 	}
 	
+	public boolean[] getGenerationAsBooleanArray() {
+		boolean[] generationAsBoolean = new boolean[this.size()];
+		CellState state;
+		
+		for(int i = 0; i < generationAsBoolean.length; ++i) {
+			state = this.getCell(i).getState();
+			if(state == CellState.OFF) {
+				generationAsBoolean[i] = false;
+			}
+			else {
+				generationAsBoolean[i] = true;
+			}
+		}
+		return generationAsBoolean;
+	}
+	
 	public String toString() {
 		String returnString = "";
 		

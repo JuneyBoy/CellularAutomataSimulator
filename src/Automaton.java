@@ -47,7 +47,7 @@ public class Automaton {
 	
 	public String getHistory() {
 		String returnString = "";
-		for(int i = 0; i <= generations.size(); ++i) {
+		for(int i = 0; i < generations.size(); ++i) {
 			if (i == generations.size()) {
 				returnString += this.getGeneration(i).toString();
 			}

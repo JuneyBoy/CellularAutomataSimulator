@@ -6,7 +6,7 @@ public class Driver {
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Cell offCell = new Cell(CellState.OFF);
 		Cell onCell = new Cell(CellState.ON);
-		Cell[] init = {offCell, onCell, offCell};
+		Cell[] init = {offCell, offCell, onCell, offCell, offCell};
 		Generation initGen = new Generation(init);
 		
 		Automaton a = new Automaton(rule, initGen, bc);
