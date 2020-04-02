@@ -6,11 +6,11 @@
 - [x] Write the methods for EvolvedCell.java
 - [x] Write the methods for CircularBoundaryConditions.java
 - [x] Write the methods for FixedBoundaryConditions.java
-* - [ ] Write the methods for Generation.java
+- [ ] Write the methods for Generation.java
   * - [ ] Figure out if I am making Generation immutable
 - [x] Write the methods for Rule.java
 - [x] Write the methods for ElementaryRule.java
 - [x] Write the methods for TotalisticRule.java
 - [x] Write the methods for Automaton.java
-* - [ ] Write the methods for AutomatonMeasurements.java
+- [ ] Write the methods for AutomatonMeasurements.java
   * - [ ] Figure out how to access subrule of EvolvedCell in given generation
