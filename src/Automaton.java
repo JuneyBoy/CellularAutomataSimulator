@@ -5,11 +5,13 @@ public class Automaton {
 	private Rule rule;
 	private List<Generation> generations;
 	private BoundaryConditions bc;
+	private int idxOfCurrentGen;
 	
 	public Automaton(Rule rule, Generation init, BoundaryConditions bc) {
 		this.rule = rule;
 		generations.add(init);
 		this.bc = bc;
+		this.idxOfCurrentGen = 0;
 	}
 	
 	public Rule getRule() {
@@ -27,17 +29,18 @@ public class Automaton {
 	public void evolve(int numSteps) {
 		
 		for(int i = 0; i < numSteps; ++i) {
-			Generation newGen = rule.evolve(this.getGeneration(this.getTotalSteps() - 1), bc);
+			Generation newGen = rule.evolve(this.getGeneration(idxOfCurrentGen), bc);
 			generations.add(newGen);
+			++idxOfCurrentGen;
 		}
 	}
 	
 	public int getTotalSteps() {
-		return generations.size();
+		return (generations.size() - 1);
 	}
 	
 	public String toString() {
-		Generation currentGen = this.getGeneration(this.getTotalSteps() - 1);
+		Generation currentGen = this.getGeneration(this.getTotalSteps());
 		return currentGen.toString();
 	}
 	

@@ -25,7 +25,7 @@ public class Generation {
 	}
 	
 	public Generation(Cell[] cells) {
-		this.cells = cells;
+		this.cells = cells.clone();
 	}
 	
 	public int size() {
