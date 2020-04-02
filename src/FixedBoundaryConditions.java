@@ -1,5 +1,5 @@
 
-public class FixedBoundaryConditions {
+public class FixedBoundaryConditions implements BoundaryConditions{
 	
 	private CellState leftBoundaryCondition;
 	private CellState rightBoundaryCondition;

@@ -1,5 +1,5 @@
 
-public class CircularBoundaryConditions {
+public class CircularBoundaryConditions implements BoundaryConditions{
 	
 	public CircularBoundaryConditions() {
 		

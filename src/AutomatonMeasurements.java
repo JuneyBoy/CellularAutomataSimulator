@@ -36,10 +36,12 @@ public class AutomatonMeasurements {
 	
 	public static int[] subruleCount(int stepNum, Automaton a) {
 		int[] subruleCountArray = new int[a.getRule().getNumSubrules()];
+		
 		for(int i : subruleCountArray) {
 			Generation workingGen = a.getGeneration(stepNum);
+			
 			for(int j = 0; j < workingGen.size(); ++j) {
-				if(i == (workingGen.getCell(j)).
+				if(i == (workingGen.getCell(j)).t
 			}
 		}
 	}
