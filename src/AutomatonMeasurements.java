@@ -9,7 +9,7 @@ public class AutomatonMeasurements {
 		}
 		
 		for(int i = 0; i < g1.size(); ++i) {
-			if(g1.getCell(i) != g2.getCell(i)) {
+			if(g1.getCell(i).getState() != g2.getCell(i).getState()) {
 				++runningCount;
 			}
 		}
@@ -26,10 +26,12 @@ public class AutomatonMeasurements {
 	
 	public static int[] hammingDistances(Automaton a) {
 		int[] distancesArray = new int[a.getTotalSteps()];
+		int counter = 0;
 		for(int i : distancesArray) {
-			Generation g1 = a.getGeneration(i);
-			Generation g2 = a.getGeneration(i + 1);
-			distancesArray[i] = hammingDistance(g1, g2);
+			Generation g1 = a.getGeneration(counter);
+			Generation g2 = a.getGeneration(counter + 1);
+			distancesArray[counter] = hammingDistance(g1, g2);
+			++counter;
 		}
 		return distancesArray;
 	}
@@ -41,7 +43,7 @@ public class AutomatonMeasurements {
 			Generation workingGen = a.getGeneration(stepNum);
 			
 			for(int j = 0; j < workingGen.size(); ++j) {
-				if(i == (workingGen.getCell(j)).t
+				EvolvedCell currentCell = workingGen.getCell(j);
 			}
 		}
 	}
