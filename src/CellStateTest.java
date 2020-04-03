@@ -13,7 +13,8 @@ public class CellStateTest {
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		assertEquals(".", CellState.OFF.toString());
+		assertEquals("O", CellState.ON.toString());
 	}
 
 }
