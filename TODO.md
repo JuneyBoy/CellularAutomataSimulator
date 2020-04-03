@@ -1,15 +1,15 @@
-#TODO List for Project 2 - Not So Elementary Cellular Automata
+# TODO List for Project 2 - Not So Elementary Cellular Automata
 
-##CellState
+## CellState
 
-###CellState getState(char symbol)
+### CellState getState(char symbol)
 
 Given a symbol, '.' and 'O', this method will return the associated state
 - [ ] (before:) test
 - [ ] (after:) test
 - [ ] (and later:) implement
 
-###String toString()
+### String toString()
 
 Returns the symbol associated with the CellState
 - [ ] (before:) test
@@ -17,30 +17,30 @@ Returns the symbol associated with the CellState
 - [ ] (and later:) implement
 
 
-##Cell
+## Cell
 
-###Cell()
+### Cell()
 
 The default constructor will make a Cell object with the state as OFF
 - [ ] (before:) test
 - [ ] (after:) test
 - [ ] (and later:) implement
 
-###Cell(CellState state)
+### Cell(CellState state)
 
 This constructor takes a CellState object and assigns the state of that enum type to the state field of Cell
 - [ ] (before:) test
 - [ ] (after:) test
 - [ ] (and later:) implement
 
-###CellState getState()
+### CellState getState()
 
 Returns the state of the Cell
 - [ ] (before:) test
 - [ ] (after:) test
 - [ ] (and later:) implement
 
-###String toString()
+### String toString()
 
 Returns the symbol associated with the state of the Cell
 - [ ] (before:) test
@@ -48,16 +48,16 @@ Returns the symbol associated with the state of the Cell
 - [ ] (and later:) implement
 
 
-##EvolvedCell
+## EvolvedCell
 
-###EvolvedCell(CellState state, int subruleNum)
+### EvolvedCell(CellState state, int subruleNum)
 
 This constructor makes an EvolvedCell object, which is almost identical to a Cell object except it has the subrule by which it evolved associated with it
 - [ ] (before:) test
 - [ ] (after:) test
 - [ ] (and later:) implement
 
-###int getSubruleNum()
+### int getSubruleNum()
 
 Returns the subrule by which the EvolvedCell evolved
 - [ ] (before:) test
