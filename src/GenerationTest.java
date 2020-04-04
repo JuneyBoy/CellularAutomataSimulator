@@ -33,9 +33,23 @@ public class GenerationTest {
 		Cell[] cells = {offCell, onCell, offCell};
 		Generation gen = new Generation(cells);
 		
+		EvolvedCell evOffCell = new EvolvedCell(CellState.OFF, 3);
+		EvolvedCell evOnCell = new EvolvedCell(CellState.ON, 3);
+		Cell[] evCells = {evOffCell, evOnCell, evOffCell};
+		Generation evCellGen = new Generation(evCells);
+		
+		
 		assertEquals(offCell, gen.getCell(0));
 		assertEquals(onCell, gen.getCell(1));
 		assertEquals(offCell, gen.getCell(2));
+		
+		assertEquals(evOffCell, evCellGen.getCell(0));
+		assertEquals(evOnCell, evCellGen.getCell(1));
+		assertEquals(evOffCell, evCellGen.getCell(2));
+		
+		assertEquals(evOffCell, evCellGen.getCell(0));
+		assertEquals(evOnCell, evCellGen.getCell(1));
+		assertEquals(evOffCell, evCellGen.getCell(2));
 	}
 
 	@Test

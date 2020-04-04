@@ -12,7 +12,7 @@ public abstract class Rule {
 	}
 	
 	public Generation evolve (Generation gen, BoundaryConditions bc) {
-		Cell[] newGen = new Cell[gen.size()];
+		EvolvedCell[] newGen = new EvolvedCell[gen.size()];
 		
 		for(int i = 0; i < newGen.length; ++i) {
 			Cell[] neighborhood = this.getNeighborhood(i, gen, bc);

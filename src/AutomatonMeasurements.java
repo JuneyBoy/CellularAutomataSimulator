@@ -39,25 +39,31 @@ public class AutomatonMeasurements {
 	public static int[] subruleCount(int stepNum, Automaton a) {
 		int[] subruleCountArray = new int[a.getRule().getNumSubrules()];
 		
-		for(int i : subruleCountArray) {
+		for(int i = 0; i < subruleCountArray.length; ++i){
+			
+			int subruleCounter = 0;
 			Generation workingGen = a.getGeneration(stepNum);
 			
 			for(int j = 0; j < workingGen.size(); ++j) {
 				EvolvedCell currentCell = workingGen.getCell(j);
+				if(i == currentCell.getSubruleNum()) {
+					++subruleCounter;
+				}
 			}
+			subruleCountArray[i] = subruleCounter;
 		}
 	}
 	
 	public static int[][] subruleCounts(Automaton a) {
-		int[] subruleCountArray = new int[a.getRule().getNumSubrules()];
-		for(int i : subruleCountArray) {
-			for(int j = 0; j < a.getTotalSteps(); ++j) {
-				Generation workingGen = a.getGeneration(j);
-				for(int k = 0; k < workingGen.size(); ++k) {
-					if(i == workingGen.getCell(k).)
-				}
-			}
+		int[][] subruleCountsArray = new int[a.getTotalSteps()][a.getRule().getNumSubrules()];
+		int idxCounter = 0;
+		
+		for(int i = 0; i < subruleCountsArray.length; ++i) {
+			subruleCountsArray[i] = subruleCount((i + 1), a);
 		}
+		
+		return subruleCountsArray;
+		
 	}
 	
 
