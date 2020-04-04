@@ -38,20 +38,27 @@ public class AutomatonMeasurements {
 	
 	public static int[] subruleCount(int stepNum, Automaton a) {
 		int[] subruleCountArray = new int[a.getRule().getNumSubrules()];
+		Rule rule = a.getRule();
+		BoundaryConditions bc = a.getBoundaryConditions();
+		Generation workingGen = a.getGeneration(stepNum - 1);
+		EvolvedCell[] cells = new EvolvedCell[workingGen.size()];
 		
-		for(int i = 0; i < subruleCountArray.length; ++i){
+		for(int i = 0; i < workingGen.size(); ++i) {
+			Cell[] neighborhood = rule.getNeighborhood(i, workingGen, bc);
+			cells[i] = rule.evolve(neighborhood);
+		}
+		
+		for(int j = 0; j < subruleCountArray.length; ++j) {
+			int subruleCount = 0;
 			
-			int subruleCounter = 0;
-			Generation workingGen = a.getGeneration(stepNum);
-			
-			for(int j = 0; j < workingGen.size(); ++j) {
-				EvolvedCell currentCell = workingGen.getCell(j);
-				if(i == currentCell.getSubruleNum()) {
-					++subruleCounter;
+			for(int k = 0; k < cells.length; ++k) {
+				if(j == cells[k].getSubruleNum()) {
+					++subruleCount;
 				}
 			}
-			subruleCountArray[i] = subruleCounter;
+			subruleCountArray[j] = subruleCount;
 		}
+		return subruleCountArray;
 	}
 	
 	public static int[][] subruleCounts(Automaton a) {
