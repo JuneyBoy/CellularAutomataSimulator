@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Driver {
 
 	public static void main(String[] args)throws InvalidRuleNumException {
-		ElementaryRule rule = new ElementaryRule(22);
+		ElementaryRule rule = new ElementaryRule(54);
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Cell offCell = new Cell(CellState.OFF);
 		Cell onCell = new Cell(CellState.ON);
@@ -11,8 +11,9 @@ public class Driver {
 		Generation initGen = new Generation(init);
 		
 		Automaton a = new Automaton(rule, initGen, bc);
-		a.evolve(2);
-		System.out.println(a.getHistory());
-		System.out.println(Arrays.toString(AutomatonMeasurements.hammingDistances(a)));
+		//a.evolve(2);
+		//System.out.println(a.getHistory());
+		//System.out.println(Arrays.toString(AutomatonMeasurements.hammingDistances(a)));
+		System.out.println(rule.toString());
 	}
 }
