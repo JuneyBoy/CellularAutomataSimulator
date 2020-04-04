@@ -13,7 +13,7 @@ public class Driver {
 		System.out.println(rule.toString());
 		System.out.println();
 		Automaton a = new Automaton(rule, initGen, bc);
-		a.evolve(3);
+		a.evolve(2);
 		System.out.println(a.getHistory());
 		//System.out.println(Arrays.toString(AutomatonMeasurements.hammingDistances(a)));
 	}

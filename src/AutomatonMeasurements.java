@@ -63,7 +63,6 @@ public class AutomatonMeasurements {
 	
 	public static int[][] subruleCounts(Automaton a) {
 		int[][] subruleCountsArray = new int[a.getTotalSteps()][a.getRule().getNumSubrules()];
-		int idxCounter = 0;
 		
 		for(int i = 0; i < subruleCountsArray.length; ++i) {
 			subruleCountsArray[i] = subruleCount((i + 1), a);

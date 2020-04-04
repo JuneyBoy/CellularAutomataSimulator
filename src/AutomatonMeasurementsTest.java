@@ -76,8 +76,23 @@ public class AutomatonMeasurementsTest {
 	}
 
 	@Test
-	public void testSubruleCounts() {
-		fail("Not yet implemented");
+	public void testSubruleCounts()throws InvalidRuleNumException {
+		ElementaryRule rule = new ElementaryRule(54);
+		BoundaryConditions bc = new CircularBoundaryConditions();
+		Cell offCell = new Cell(CellState.OFF);
+		Cell onCell = new Cell(CellState.ON);
+		Cell[] init = {offCell, offCell, offCell, offCell, offCell, onCell, offCell, offCell, offCell, offCell, offCell};
+		Generation initGen = new Generation(init);
+		
+		Automaton a = new Automaton(rule, initGen, bc);
+		a.evolve(2);
+		int[][] counts = AutomatonMeasurements.subruleCounts(a);
+		
+		assertEquals(8, counts[0][0]);
+		assertEquals(1, counts[0][1]);
+		
+		assertEquals(6, counts[1][0]);
+		assertEquals(1, counts[1][1]);
 	}
 
 }
