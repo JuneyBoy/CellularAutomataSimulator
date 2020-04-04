@@ -5,7 +5,7 @@
 ### CellState getState(char symbol)
 
 Given a symbol, '.' and 'O', this method will return the associated state
-- [ ] (before:) test
+- [x] Write method
 - [ ] (after:) test
 - [ ] (and later:) implement
 
@@ -87,6 +87,27 @@ Probably the most straightforward Generation constructor, the constructor copies
 - [ ] (after:) test
 - [ ] (and later:) implement
 
+### int size()
+
+Returns the number of Cells in the Generation
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### Cell getCell(int idx)
+
+Returns the Cell at the specified index
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### String toString
+
+Returns the String representation of each Cell symbol in the Generation concatenated together
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
 
 ## CircularBoundaryConditions
 
@@ -114,21 +135,21 @@ Unlike the circular boundary condition, the leftmost Cell's left neighbors' stat
 - [ ] (after:) test
 - [ ] (and later:) implement
 
-### getLeftState()
+### CellState getLeftState()
 
 Returns the fixed state for cells left of the leftmost Cell
 - [ ] (before:) test
 - [ ] (after:) test
 - [ ] (and later:) implement
 
-### getRightState()
+### CellState getRightState()
 
 Returns the fixed state for cells right of the rightmost Cell
 - [ ] (before:) test
 - [ ] (after:) test
 - [ ] (and later:) implement
 
-### getNeighbor(int cellIdx, int offset, Generation gen)
+### Cell getNeighbor(int cellIdx, int offset, Generation gen)
 
 Using the idea specified above, this method gets the Cell offset Cells away from the Cell at cellIdx
 - [ ] (before:) test
@@ -136,10 +157,192 @@ Using the idea specified above, this method gets the Cell offset Cells away from
 - [ ] (and later:) implement
 
 
+## Rule
 
-- [x] Write the methods for Rule.java
-- [x] Write the methods for ElementaryRule.java
-- [x] Write the methods for TotalisticRule.java
+### int getRuleNum()
+
+Returns the decimal representation of the Rule number
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### Generation evolve(Generation gen, BoundaryConditions bc)
+
+Given a Generation and BoundaryCondition, this method will evolve the Generation based on the concrete Rule and ruleNum
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+
+## ElementaryRule
+
+### ElementaryRule(int ruleNum)
+
+The ElementaryRule specifies that the state of a Cell in the next Generation is based on its current state as well as the states' of its neighbors on the left and right. Because the Cell in the next Generation can either be specified to be OFF or ON and there are 8 possible configurations of the 3 Cells determining the state of the Cell in the next Generation, there are a total of 256 possible rules.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### int getNumOfSubrules
+
+As said up above, there are 8 possible configurations of the 3 Cells and the state of the Cell in the next Generation associated with each of those configurations will be referred to as a "subrule". This method will simly return the int 8, as that value is constant for this kind of Rule.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### EvolvedCell evolve(Cell[] neighborhood)
+
+This method is called repeatedly by the evolve method in the abstract parent Rule class and returns one EvolvedCell based on the configuration of the given Cell neighborhood and the ruleNum.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### String toString()
+
+Returns a sort of table to represent the rule. For example, if the ruleNum = 110 this method would return
+```
+OOO OO. O.O O.. .OO .O. ..O ...
+ .   O   O   .   O   O   O   . 
+```
+with O representing ON states and . representing OFF states.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+
+
+## TotalisticRule
+
+### TotalisticRule(int ruleNum)
+
+The TotalisticRule specifies that the state of a Cell in the next Generation is based on how many Cells in a certain span are currently ON. For this program, that span will include the current Cell as well as 2 Cells to its left and right. Because the Cell in the next Generation can either be specified to be OFF or ON and there are can be 6(0-5) ways the Cells can be ON, there are a total of 64 rules.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### int getNumOfSubrules
+
+As said up above, there are 6 possible ways the Cells in the span can be ON and the state of the Cell in the next Generation associated with each of those possibilities will be referred to as a "subrule". This method will simply return the int 6, as that value is constant for this kind of Rule.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### EvolvedCell evolve(Cell[] neighborhood)
+
+This method is called repeatedly by the evolve method in the abstract parent Rule class and returns one EvolvedCell based on the configuration of the given Cell neighborhood and the ruleNum.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### String toString()
+
+Returns a sort of table to represent the rule. For example, if the ruleNum = 22 this method would return
+```
+5 4 3 2 1 0
+. O . O O .
+```
+with O representing ON states and . representing OFF states.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+
+## Automaton
+
+### Automaton(Rule rule, Generation init, BoundaryConditions bc)
+
+Given a type of Rule, a rule number, an initial Generation, and BoundaryCondition this constructor will create an Automaton which can exhibit some pretty complex behavior if evolved
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### Rule getRule()
+
+Returns the type of Rule the Automaton is following
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### Generation getGeneration(int stepNum)
+
+Returns the generation of the Automaton at the specified index.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### BoundaryConditions getBoundaryConditions()
+
+Returns the BoundaryCondition the Automaton is following
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### void evolve(int stepNum)
+
+Evolves the Automaton the specified number of times and adds each Generation created to a List
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### int getTotalSteps()
+
+Returns the number of times the Automaton has been evolved(the number of Generations the Automaton has gone through - 1)
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### String toString()
+
+Returns a String representation of the most current Generation
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### String getHistory()
+
+Returns a String representation of the entire evolution of the Automaton
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+
 - [x] Write the methods for Automaton.java
 - [ ] Write the methods for AutomatonMeasurements.java
-  * - [ ] Figure out how to access subrule of EvolvedCell in given generation
+
+
+## AutomatonMeasurements
+
+### int hammingDistance(Generation g1, Generation g2)
+
+Given 2 Generations, this method returns the number of Cells that would to be changed for the two Generations to become identical.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### int hammingDistance(int stepNum, Automaton a)
+
+Returns the number of Cells that would to be changed for the two Generations in the Automaton before and after the given stepNum to become identical.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### int[] hammingDistances(Automaton a)
+
+Returns an array of length equal to the number of evolutions the Automaton has gone through. The array contains the hammingDistances between subsequent Generations.
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### int[] subRuleCount(int stepNum, Automaton a)
+
+Returns an array that contains the how often each subrule was applied to the Generation of the Automaton at the stepNum index
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
+
+### int[][] subRuleCounts(Automaton a)
+
+Returns a 2D array that contains the arrays created by the last method for each Generation of the Automaton
+- [ ] (before:) test
+- [ ] (after:) test
+- [ ] (and later:) implement
