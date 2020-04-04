@@ -60,8 +60,22 @@ public class TotalisticRule extends Rule{
 		firstLine.append("5 4 3 2 1 0");
 		
 		StringBuilder secondLine = new StringBuilder();
-		for(int i = NUM_OF_SUBRULES - 1; i >= 0; --i) {
-			secondLine.append(" " + ruleInBinary.charAt(i) + " ");
+		for(int i = 0; i < ruleInBinary.length(); ++i) {
+			CellState state;
+			
+			if(ruleInBinary.charAt(i) == '0') {
+				state = CellState.OFF;
+			}
+			else {
+				state = CellState.ON;
+			}
+			
+			if(i == 0) {
+				secondLine.append(state.toString());
+			}
+			else {
+				secondLine.append(" " + state.toString());
+			}
 		}
 		
 		StringBuilder returnString = firstLine.append("\n").append(secondLine);

@@ -56,7 +56,7 @@ public class TotalisticRuleTest {
 	public void testToString()throws InvalidRuleNumException {
 		Rule rule = new TotalisticRule(22);
 		StringBuilder firstLine = new StringBuilder("5 4 3 2 1 0");
-		StringBuilder secondLine = new StringBuilder(". O O . O .");
+		StringBuilder secondLine = new StringBuilder(". O . O O .");
 		StringBuilder expected = firstLine.append("\n").append(secondLine);
 		
 		assertEquals(expected, rule.toString());
