@@ -7,14 +7,14 @@ public class CircularBoundaryConditionsTest {
 	@Test
 	public void testGetNeighbor() {
 		CircularBoundaryConditions bc = new CircularBoundaryConditions();
-		Generation gen = new Generation("..O..");
-		Cell leftNeighbor = bc.getNeighbor(2, -1, gen);
-		Cell centerCell = bc.getNeighbor(2, 0, gen);
-		Cell rightNeighbor = bc.getNeighbor(2, 1, gen);
+		Generation gen = new Generation("O.O..");
+		Cell leftEdgeTest = bc.getNeighbor(0, -1, gen);
+		Cell normalTest = bc.getNeighbor(2, 2, gen);
+		Cell rightEdgeTest = bc.getNeighbor(4, 1, gen);
 		
-		assertEquals(CellState.OFF, leftNeighbor.getState());
-		assertEquals(CellState.ON, centerCell.getState());
-		assertEquals(CellState.OFF, rightNeighbor.getState());
+		assertEquals(CellState.OFF, leftEdgeTest.getState());
+		assertEquals(CellState.OFF, normalTest.getState());
+		assertEquals(CellState.ON, rightEdgeTest.getState());
 	}
 
 }
