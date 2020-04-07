@@ -147,6 +147,7 @@ public class ElementaryRule extends Rule{
  .   *	O   O   .   O   O   O   . 
 	 */
 	public String toString() {
+		//firstLine is a constant as these possible combinations never change for an ElementaryRule
 		StringBuilder firstLine = new StringBuilder("OOO OO. O.O O.. .OO .O. ..O ...");
 		
 		StringBuilder secondLine = new StringBuilder();

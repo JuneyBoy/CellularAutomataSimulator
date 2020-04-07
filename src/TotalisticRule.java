@@ -52,20 +52,30 @@ public class TotalisticRule extends Rule{
 		
 	}
 	
+	/**
+	 * @param neighborhood the 5 Cells (the Cell that is being evolved and the 2 Cells to its right as well as 2 Cells to its left)
+	 * @return an EvolvedCell
+	 */
 	public EvolvedCell evolve(Cell[] neighborhood) {
 		EvolvedCell returnCell;
 		int numOfOnCellsInNeighborHood = 0;
+		char relevantBit;
 		
+		//counts how many Cells in the nieghborhood were in the ON state
 		for(Cell cell : neighborhood) {
 			if(cell.getState() == CellState.ON) {
 				++numOfOnCellsInNeighborHood;
 			}
 		}
 		
-		if(ruleInBinary.charAt(NUM_OF_SUBRULES - (numOfOnCellsInNeighborHood + 1)) == '1') {
+		//the relevant bit in the binary string is at the "opposite" index of the subrule number
+		relevantBit = ruleInBinary.charAt(NUM_OF_SUBRULES - (numOfOnCellsInNeighborHood + 1));
+		
+		//if the relevantBit is 1 then the state of the EvolvedCell is ON
+		if(relevantBit == '1') {
 			returnCell = new EvolvedCell(CellState.ON, numOfOnCellsInNeighborHood);
 		}
-		
+		//Otherwise the state of the EvolvedCell is OFF
 		else {
 			returnCell = new EvolvedCell(CellState.OFF, numOfOnCellsInNeighborHood);
 		}
@@ -74,24 +84,35 @@ public class TotalisticRule extends Rule{
 		
 	}
 	
+	/**
+	 * @return a String representation of the Rule table
+	 * For example, for ruleNum = 22 the String would be 
+	 * 5 4 3 2 1 0
+	 * . O . O O .
+	 */
 	public String toString() {
+		//firstLine is a constant as these possible numbers for how many Cells were ON never change for a TotalisticRule
 		StringBuilder firstLine = new StringBuilder();
 		firstLine.append("5 4 3 2 1 0");
 		
+		//gets the bits of the ruleInBinary String
 		StringBuilder secondLine = new StringBuilder();
 		for(int i = 0; i < ruleInBinary.length(); ++i) {
 			CellState state;
 			
+			//if the bit is 0, the state of the Cell in the next Generation following that subrule should be OFF
 			if(ruleInBinary.charAt(i) == '0') {
 				state = CellState.OFF;
 			}
+			//else the state should be ON
 			else {
 				state = CellState.ON;
 			}
-			
+			//if the index of the char is 0, there is no space before the symbol
 			if(i == 0) {
 				secondLine.append(state.toString());
 			}
+			//else, there is a space before the symbol
 			else {
 				secondLine.append(" " + state.toString());
 			}
