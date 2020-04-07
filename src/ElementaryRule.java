@@ -29,14 +29,14 @@ public class ElementaryRule extends Rule{
 		NEIGHBORHOOD_TO_SUBRULE.put(SEVEN_SUBRULE, 7);
 	}
 	
-	private static boolean[] ZERO_SUBRULE_AS_BOOLEAN = new boolean[]{false, false, false};
-	private static boolean[] ONE_SUBRULE_AS_BOOLEAN = new boolean[]{false, false, true};
-	private static boolean[] TWO_SUBRULE_AS_BOOLEAN = new boolean[]{false, true, false};
-	private static boolean[] THREE_SUBRULE_AS_BOOLEAN = new boolean[]{false, true, true};
-	private static boolean[] FOUR_SUBRULE_AS_BOOLEAN = new boolean[]{true, false, false};
-	private static boolean[] FIVE_SUBRULE_AS_BOOLEAN = new boolean[]{true, false, true};
-	private static boolean[] SIX_SUBRULE_AS_BOOLEAN = new boolean[]{true, true, false};
-	private static boolean[] SEVEN_SUBRULE_AS_BOOLEAN = new boolean[]{true, true, true};
+	private static boolean[] ZERO_SUBRULE_AS_BOOLEAN = (new Generation(ZERO_SUBRULE)).getGenerationAsBooleanArray();
+	private static boolean[] ONE_SUBRULE_AS_BOOLEAN = (new Generation(ONE_SUBRULE)).getGenerationAsBooleanArray();
+	private static boolean[] TWO_SUBRULE_AS_BOOLEAN = (new Generation(TWO_SUBRULE)).getGenerationAsBooleanArray();
+	private static boolean[] THREE_SUBRULE_AS_BOOLEAN = (new Generation(THREE_SUBRULE)).getGenerationAsBooleanArray();
+	private static boolean[] FOUR_SUBRULE_AS_BOOLEAN = (new Generation(FOUR_SUBRULE)).getGenerationAsBooleanArray();
+	private static boolean[] FIVE_SUBRULE_AS_BOOLEAN = (new Generation(FIVE_SUBRULE)).getGenerationAsBooleanArray();
+	private static boolean[] SIX_SUBRULE_AS_BOOLEAN = (new Generation(SIX_SUBRULE)).getGenerationAsBooleanArray();
+	private static boolean[] SEVEN_SUBRULE_AS_BOOLEAN = (new Generation(SEVEN_SUBRULE)).getGenerationAsBooleanArray();
 	
 	public ElementaryRule(int ruleNum) throws InvalidRuleNumException{
 		super(ruleNum);
