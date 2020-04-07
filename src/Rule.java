@@ -24,7 +24,7 @@ public abstract class Rule {
 	 * This evolve method calls the other evolve method multiple times to return the resulting Generation of the Automaton after being evolved once
 	 * @param gen is the Generation that is being evolved
 	 * @param bc is the BoundaryCondition the Automaton is following
-	 * @return
+	 * @return the next Generation
 	 */
 	public Generation evolve (Generation gen, BoundaryConditions bc) {
 		EvolvedCell[] newGen = new EvolvedCell[gen.size()];

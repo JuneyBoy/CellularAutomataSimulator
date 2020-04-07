@@ -1,12 +1,23 @@
 import java.util.Arrays;
 import java.util.HashMap;
-
+/**
+ * This Rule depends evolves a Cell based on its current state as well as the states of its left and right neighbors.
+ * As 3 Cells are used to determine the state of any given Cell's state in the next Generation and each Cell can be in 1 of 2 states,
+ * there are 8 subrules.
+ * 
+ * @author Arjun Ganesan
+ * @version
+ *
+ */
 public class ElementaryRule extends Rule{
 	
 	private final int NUM_OF_SUBRULES = 8;
+	//# of Cells used in determining the state of the Cell in the next Generation
 	private final int NEIGHBORHOOD_RADIUS = 3;
+	//stores the rule # in binary
 	private String ruleInBinary;
 	
+	//stores all the possible combinations of the 8 Cells
 	private static final CellState[] ZERO_SUBRULE = {CellState.OFF, CellState.OFF, CellState.OFF};
 	private static final CellState[] ONE_SUBRULE = {CellState.OFF, CellState.OFF, CellState.ON};
 	private static final CellState[] TWO_SUBRULE = {CellState.OFF, CellState.ON, CellState.OFF};
@@ -18,6 +29,7 @@ public class ElementaryRule extends Rule{
 	
 	private static final HashMap<CellState[], Integer> NEIGHBORHOOD_TO_SUBRULE = new HashMap<>();
 	
+	//HashMap maps each combination to its subrule number, which will be used to find the relevant char in the ruleInBinary Strng
 	static {
 		NEIGHBORHOOD_TO_SUBRULE.put(ZERO_SUBRULE, 0);
 		NEIGHBORHOOD_TO_SUBRULE.put(ONE_SUBRULE, 1);
@@ -29,6 +41,7 @@ public class ElementaryRule extends Rule{
 		NEIGHBORHOOD_TO_SUBRULE.put(SEVEN_SUBRULE, 7);
 	}
 	
+	//stores all the possible combinations of the 8 Cells, but in binary form to be easily compared
 	private static boolean[] ZERO_SUBRULE_AS_BOOLEAN = (new Generation(ZERO_SUBRULE)).getGenerationAsBooleanArray();
 	private static boolean[] ONE_SUBRULE_AS_BOOLEAN = (new Generation(ONE_SUBRULE)).getGenerationAsBooleanArray();
 	private static boolean[] TWO_SUBRULE_AS_BOOLEAN = (new Generation(TWO_SUBRULE)).getGenerationAsBooleanArray();
@@ -38,36 +51,54 @@ public class ElementaryRule extends Rule{
 	private static boolean[] SIX_SUBRULE_AS_BOOLEAN = (new Generation(SIX_SUBRULE)).getGenerationAsBooleanArray();
 	private static boolean[] SEVEN_SUBRULE_AS_BOOLEAN = (new Generation(SEVEN_SUBRULE)).getGenerationAsBooleanArray();
 	
+	/**
+	 * 
+	 * @param ruleNum is the elementary rule
+	 * @throws InvalidRuleNumException with there being 8 subrules and 2 states each subrule can specify, there 256 total elementary rules. This exception throws any ruleNum that isn't between 0 and 255.
+	 */
 	public ElementaryRule(int ruleNum) throws InvalidRuleNumException{
 		super(ruleNum);
 		
 		if(ruleNum < 0 || ruleNum > 255) {
 			throw new InvalidRuleNumException();
 		}
+		//gets the ruleNum as an 8-bit String
 		ruleInBinary = String.format("%8s", Integer.toBinaryString(ruleNum)).replace(' ', '0');
 	}
 	
+	/**
+	 * returns 8 for any ElementaryRule object
+	 */
 	public int getNumSubrules() {
 		return NUM_OF_SUBRULES;
 	}
 	
 	public Cell[] getNeighborhood(int cellIdx, Generation gen, BoundaryConditions bc) {
 		Cell[] neighborhood = new Cell[NEIGHBORHOOD_RADIUS];
-		
+		//gets the left neighbor of the Cell and stores it at index 0
 		neighborhood[0] = bc.getNeighbor(cellIdx, -1, gen);
+		//stores the Cell at index 1
 		neighborhood[1] = bc.getNeighbor(cellIdx, 0, gen);
+		//gets the right neighbor of the Cell and stores it at index 2
 		neighborhood[2] = bc.getNeighbor(cellIdx, 1, gen);
 		
 		return neighborhood;
 		
 	}
 	
+	/**
+	 * 
+	 * @param neighborhood the 3 Cells(the Cell that is being evolved and its left and right neighbor)
+	 * @return an EvolvedCell
+	 */
 	public EvolvedCell evolve(Cell[] neighborhood) {
 		EvolvedCell returnCell;
 		int subrule = 0;
 		char relevantBit;
+		//gets the neighborhood of Cells as a boolean[] for easy comparison
 		boolean[] neighborhoodAsBoolean = (new Generation(neighborhood)).getGenerationAsBooleanArray();
 		
+		//compares the nieghborhood to every possible combination of 3 Cells and gets the appriopriate subrule number
 		if(Arrays.equals(neighborhoodAsBoolean, ZERO_SUBRULE_AS_BOOLEAN)) {
 			subrule = NEIGHBORHOOD_TO_SUBRULE.get(ZERO_SUBRULE);
 		}
@@ -93,12 +124,14 @@ public class ElementaryRule extends Rule{
 			subrule = NEIGHBORHOOD_TO_SUBRULE.get(SEVEN_SUBRULE);
 		}
 		
+		//the relevant bit in the binary string is at the "opposite" index of the subrule number
 		relevantBit = ruleInBinary.charAt(ruleInBinary.length() - (subrule + 1));
 		
+		//if the relevantBit is 1 then the state of the EvolvedCell is ON
 		if(relevantBit == '1') {
 			returnCell = new EvolvedCell(CellState.ON, subrule);
 		}
-		
+		//Otherwise the state of the EvolvedCell is OFF
 		else {
 			returnCell = new EvolvedCell(CellState.OFF, subrule);
 		}
@@ -107,6 +140,12 @@ public class ElementaryRule extends Rule{
 		
 	}
 	
+	/**
+	 * @return a String representation of the Rule table
+	 * For example, for ruleNum = 110 the String would be 
+	 * OOO OO. O.O O.. .OO .O. ..O ...
+ .   *	O   O   .   O   O   O   . 
+	 */
 	public String toString() {
 		StringBuilder firstLine = new StringBuilder("OOO OO. O.O O.. .OO .O. ..O ...");
 		
