@@ -104,7 +104,7 @@ public class AutomatonTest {
 		
 		String expected = ("...O..." + "\n").concat("...OO.." + "\n").concat("...O.O.");
 		
-		assertEquals(expected, ercbc.getHistory());
+		assertEquals(expected.toString(), ercbc.getHistory());
 	}
 
 }
