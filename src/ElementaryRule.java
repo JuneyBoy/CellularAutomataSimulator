@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.HashMap;
 /**
- * This Rule depends evolves a Cell based on its current state as well as the states of its left and right neighbors.
+ * This Rule evolves a Cell based on its current state as well as the states of its left and right neighbors.
  * As 3 Cells are used to determine the state of any given Cell's state in the next Generation and each Cell can be in 1 of 2 states,
  * there are 8 subrules.
  * 
@@ -13,7 +13,7 @@ public class ElementaryRule extends Rule{
 	
 	private final int NUM_OF_SUBRULES = 8;
 	//# of Cells used in determining the state of the Cell in the next Generation
-	private final int NEIGHBORHOOD_RADIUS = 3;
+	private final int NEIGHBORHOOD_LENGTH = 3;
 	//stores the rule # in binary
 	private String ruleInBinary;
 	
@@ -74,7 +74,7 @@ public class ElementaryRule extends Rule{
 	}
 	
 	public Cell[] getNeighborhood(int cellIdx, Generation gen, BoundaryConditions bc) {
-		Cell[] neighborhood = new Cell[NEIGHBORHOOD_RADIUS];
+		Cell[] neighborhood = new Cell[NEIGHBORHOOD_LENGTH];
 		//gets the left neighbor of the Cell and stores it at index 0
 		neighborhood[0] = bc.getNeighbor(cellIdx, -1, gen);
 		//stores the Cell at index 1

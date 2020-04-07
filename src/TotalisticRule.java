@@ -1,27 +1,46 @@
-import java.util.HashMap;
 
+/**
+ * This Rule evolves a Cell based on how many Cells in a radius(which is 2 for this program) are ON.
+ * As 5 Cells are used to determine the state of any given Cell's state in the next Generation and the number of Cells that can be ON are 0-5,
+ * there are 6 subrules.
+ * 
+ * @author Arjun Ganesan
+ * @version 1.0
+ *
+ */
 public class TotalisticRule extends Rule{
 	
 	private final int NUM_OF_SUBRULES = 6;
-	private final int NEIGHBORHOOD_RADIUS = 5;
+	//# of Cells used in determining the state of the Cell in the next Generation
+	private final int NEIGHBORHOOD_LENGTH = 5;
+	//stores the rule # in binary
 	private String ruleInBinary;
 	
+	/**
+	 * 
+	 * @param ruleNum is the totalistic rule
+	 * @throws InvalidRuleNumException with there being 6 subrules and 2 states each subrule can specify, there 64 total elementary rules. This exception throws any ruleNum that isn't between 0 and 255.
+	 */
 	public TotalisticRule(int ruleNum) throws InvalidRuleNumException{
 		super(ruleNum);
 		
 		if(ruleNum < 0 || ruleNum > 64) {
 			throw new InvalidRuleNumException();
 		}
+		//gets the ruleNum as an 6-bit String
 		ruleInBinary = String.format("%6s", Integer.toBinaryString(ruleNum)).replace(' ', '0');
 	}
 	
+	/**
+	 * returns 6 for any TotalisticRule object
+	 */
 	public int getNumSubrules() {
 		return NUM_OF_SUBRULES;
 	}
 	
 	public Cell[] getNeighborhood(int cellIdx, Generation gen, BoundaryConditions bc) {
 		
-		Cell[] neighborhood = new Cell[NEIGHBORHOOD_RADIUS];
+		Cell[] neighborhood = new Cell[NEIGHBORHOOD_LENGTH];
 		
 		neighborhood[0] = bc.getNeighbor(cellIdx, -2, gen);
 		neighborhood[1] = bc.getNeighbor(cellIdx, -1, gen);
