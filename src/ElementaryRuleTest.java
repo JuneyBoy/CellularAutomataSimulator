@@ -58,7 +58,8 @@ public class ElementaryRuleTest {
 		StringBuilder firstLine = new StringBuilder("OOO OO. O.O O.. .OO .O. ..O ...");
 		StringBuilder secondLine = new StringBuilder(" .   .   O   O   .   O   O   . ");
 		StringBuilder expected = firstLine.append("\n").append(secondLine);
+		String expectedString = expected.toString();
 		
-		assertEquals(expected, rule.toString());
+		assertEquals(expectedString, rule.toString());
 	}
 }

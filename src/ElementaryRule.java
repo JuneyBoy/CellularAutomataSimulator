@@ -152,6 +152,7 @@ public class ElementaryRule extends Rule{
 		
 		StringBuilder secondLine = new StringBuilder();
 		
+		
 		for(int i = 0; i < ruleInBinary.length(); ++i) {
 			CellState state;
 			
