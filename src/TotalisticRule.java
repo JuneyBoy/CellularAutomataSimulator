@@ -24,7 +24,7 @@ public class TotalisticRule extends Rule{
 	public TotalisticRule(int ruleNum) throws InvalidRuleNumException{
 		super(ruleNum);
 		
-		if(ruleNum < 0 || ruleNum > 64) {
+		if(ruleNum < 0 || ruleNum >= 64) {
 			throw new InvalidRuleNumException();
 		}
 		//gets the ruleNum as an 6-bit String

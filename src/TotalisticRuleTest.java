@@ -4,9 +4,9 @@ import org.junit.Test;
 
 public class TotalisticRuleTest {
 
-	@Test
-	public void testTotalisticRule() {
-		fail("Not yet implemented");
+	@Test (expected = InvalidRuleNumException.class)
+	public void testTotalisticRule()throws InvalidRuleNumException {
+		Rule rule = new TotalisticRule(64);
 	}
 	
 	@Test
