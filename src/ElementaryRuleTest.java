@@ -4,9 +4,9 @@ import org.junit.Test;
 
 public class ElementaryRuleTest {
 
-	@Test
-	public void testElementaryRule() {
-		fail("Not yet implemented");
+	@Test(expected = InvalidRuleNumException.class)
+	public void testElementaryRule()throws InvalidRuleNumException {
+		Rule rule = new ElementaryRule(-1);
 	}
 	
 	@Test
