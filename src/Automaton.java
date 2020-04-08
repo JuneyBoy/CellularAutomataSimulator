@@ -48,7 +48,15 @@ public class Automaton {
 		if(stepNum < 0) {
 			throw new InvalidStepNumException();
 		}
+		
+		if(stepNum > this.getTotalSteps()) {
+			int timesToEvolve = stepNum - this.getTotalSteps();
+			this.evolve(timesToEvolve);
+			return generations.get(this.getTotalSteps());
+		}
+		
 		return generations.get(stepNum);
+		
 	}
 	
 	/**

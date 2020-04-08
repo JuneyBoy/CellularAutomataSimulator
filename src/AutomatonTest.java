@@ -21,9 +21,14 @@ public class AutomatonTest {
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Automaton a = new Automaton(rule, init, bc);
 		
-		Generation expected = new Generation("..O..");
+		Generation expected1 = new Generation("..O..");
 		
-		assertEquals(expected.toString(), a.getGeneration(0).toString());
+		assertEquals(expected1.toString(), a.getGeneration(0).toString());
+		
+		Generation expected2 = new Generation("OOO.O");
+		
+		assertEquals(expected2.toString(), a.getGeneration(1).toString());
+		
 	}
 	
 	@Test (expected = InvalidStepNumException.class)

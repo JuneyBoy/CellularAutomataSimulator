@@ -3,14 +3,14 @@ import java.util.Arrays;
 public class Driver {
 
 	public static void main(String[] args)throws InvalidRuleNumException, InvalidStepNumException {
-		Rule rule = new ElementaryRule(54);
+		Rule rule = new ElementaryRule(15);
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Generation initGen = new Generation("..O..");
 		
 		System.out.println(rule.toString());
 		System.out.println();
 		Automaton a = new Automaton(rule, initGen, bc);
-		a.evolve(5);
+		a.evolve(1);
 		
 		System.out.println(a.getHistory());
 		System.out.println();
