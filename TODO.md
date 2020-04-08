@@ -243,7 +243,7 @@ with O representing ON states and . representing OFF states.
 
 The TotalisticRule specifies that the state of a Cell in the next Generation is based on how many Cells in a certain span are currently ON. For this program, that span will include the current Cell as well as 2 Cells to its left and right. Because the Cell in the next Generation can either be specified to be OFF or ON and there are can be 6(0-5) ways the Cells can be ON, there are a total of 64 rules.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -251,7 +251,7 @@ The TotalisticRule specifies that the state of a Cell in the next Generation is 
 
 As said up above, there are 6 possible ways the Cells in the span can be ON and the state of the Cell in the next Generation associated with each of those possibilities will be referred to as a "subrule". This method will simply return the int 6, as that value is constant for this kind of Rule.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -259,7 +259,7 @@ As said up above, there are 6 possible ways the Cells in the span can be ON and 
 
 This method is called repeatedly by the evolve method in the abstract parent Rule class and returns one EvolvedCell based on the configuration of the given Cell neighborhood and the ruleNum.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -272,7 +272,7 @@ Returns a sort of table to represent the rule. For example, if the ruleNum = 22 
 ```
 with O representing ON states and . representing OFF states.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -283,7 +283,7 @@ with O representing ON states and . representing OFF states.
 
 Given a type of Rule, a rule number, an initial Generation, and BoundaryCondition this constructor will create an Automaton which can exhibit some pretty complex behavior if evolved
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -291,7 +291,7 @@ Given a type of Rule, a rule number, an initial Generation, and BoundaryConditio
 
 Returns the type of Rule the Automaton is following
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -299,7 +299,7 @@ Returns the type of Rule the Automaton is following
 
 Returns the generation of the Automaton at the specified index.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -307,7 +307,7 @@ Returns the generation of the Automaton at the specified index.
 
 Returns the BoundaryCondition the Automaton is following
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -315,7 +315,7 @@ Returns the BoundaryCondition the Automaton is following
 
 Evolves the Automaton the specified number of times and adds each Generation created to a List
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -323,7 +323,7 @@ Evolves the Automaton the specified number of times and adds each Generation cre
 
 Returns the number of times the Automaton has been evolved(the number of Generations the Automaton has gone through - 1)
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -331,7 +331,7 @@ Returns the number of times the Automaton has been evolved(the number of Generat
 
 Returns a String representation of the most current Generation
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -339,7 +339,7 @@ Returns a String representation of the most current Generation
 
 Returns a String representation of the entire evolution of the Automaton
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -349,7 +349,7 @@ Returns a String representation of the entire evolution of the Automaton
 
 Given 2 Generations, this method returns the number of Cells that would to be changed for the two Generations to become identical.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -357,7 +357,7 @@ Given 2 Generations, this method returns the number of Cells that would to be ch
 
 Returns the number of Cells that would to be changed for the two Generations in the Automaton before and after the given stepNum to become identical.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -365,7 +365,7 @@ Returns the number of Cells that would to be changed for the two Generations in 
 
 Returns an array of length equal to the number of evolutions the Automaton has gone through. The array contains the hammingDistances between subsequent Generations.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -373,7 +373,7 @@ Returns an array of length equal to the number of evolutions the Automaton has g
 
 Returns an array that contains the how often each subrule was applied to the Generation of the Automaton at the stepNum index
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -381,6 +381,6 @@ Returns an array that contains the how often each subrule was applied to the Gen
 
 Returns a 2D array that contains the arrays created by the last method for each Generation of the Automaton
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
