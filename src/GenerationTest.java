@@ -25,6 +25,12 @@ public class GenerationTest {
 		assertEquals(CellState.ON, gen.getCell(1).getState());
 		assertEquals(CellState.OFF, gen.getCell(2).getState());
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testGenerationStringError()throws IllegalArgumentException {
+		String cells = ".0.";
+		Generation gen = new Generation(cells);
+	}
 
 	@Test
 	public void testGenerationCellArray() {
