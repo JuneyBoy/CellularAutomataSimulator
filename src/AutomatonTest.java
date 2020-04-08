@@ -5,11 +5,6 @@ import org.junit.Test;
 public class AutomatonTest {
 
 	@Test
-	public void testAutomaton() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGetRule()throws InvalidRuleNumException {
 		Rule rule = new ElementaryRule(15);
 		Generation init = new Generation("..O..");

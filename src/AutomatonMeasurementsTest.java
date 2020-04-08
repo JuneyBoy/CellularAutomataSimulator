@@ -14,6 +14,13 @@ public class AutomatonMeasurementsTest {
 		
 		assertEquals(2, distance);
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testHammingDistanceGenerationGenerationError() {
+		Generation gen1 = new Generation("..O..");
+		Generation gen2 = new Generation(".O.O.O");
+		int distance = AutomatonMeasurements.hammingDistance(gen1, gen2);
+	}
 
 	@Test
 	public void testHammingDistanceIntAutomaton()throws InvalidRuleNumException {
