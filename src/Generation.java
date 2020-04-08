@@ -22,8 +22,8 @@ public class Generation {
 		}
 	}
 	
-	/**This constructor takes a String, creates a Cell object for each symbol that is mapped to either CellState.OFF or CellState.ON, and stores each Cell into the cells array
-	 * 
+	/**
+	 * This constructor takes a String, creates a Cell object for each symbol that is mapped to either CellState.OFF or CellState.ON, and stores each Cell into the cells array
 	 * @param string is a representation of a Generation, with the state of each Cell being represented by its respective symbol
 	 */
 	public Generation(String genAsString) {
