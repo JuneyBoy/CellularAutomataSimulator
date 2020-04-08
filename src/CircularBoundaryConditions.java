@@ -25,19 +25,19 @@ public class CircularBoundaryConditions implements BoundaryConditions{
 	public Cell getNeighbor(int cellIdx, int offset, Generation gen) {
 		
 		int cellsInGen = gen.size();
-		int uncorrectedIndexOfNeighbor = cellIdx + offset;
+		int indexOfNeighbor = (cellIdx + offset) % cellsInGen;
 		Cell returnCell;
 		
 		//if the sum of the cellIdx and offset is negative, that means the Cell is "too left",
 		//so we begin accessing the Cells starting from the right
-		if(uncorrectedIndexOfNeighbor < 0) {
-			returnCell = gen.getCell(cellsInGen + (uncorrectedIndexOfNeighbor % cellsInGen));
+		if(indexOfNeighbor < 0) {
+			returnCell = gen.getCell(cellsInGen + indexOfNeighbor);
 			return returnCell;
 		}
 		
 		//we use the modulo operator to take care of the case where the sum of cellIdx and offset is greater
 		//than than the size of the Generation and begin wrapping around the left of the Generation
-		returnCell = gen.getCell(uncorrectedIndexOfNeighbor % cellsInGen);
+		returnCell = gen.getCell(indexOfNeighbor);
 		return returnCell;
 	}
 
