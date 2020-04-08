@@ -4,7 +4,7 @@
  * right most Cell's right neighbor is the left most Cell
  * 
  * @author Arjun Ganesan
- * @version
+ * @version 1.0
  *
  */
 public class CircularBoundaryConditions implements BoundaryConditions{
