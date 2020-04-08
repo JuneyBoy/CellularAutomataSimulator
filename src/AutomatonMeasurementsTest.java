@@ -23,7 +23,7 @@ public class AutomatonMeasurementsTest {
 	}
 
 	@Test
-	public void testHammingDistanceIntAutomaton()throws InvalidRuleNumException {
+	public void testHammingDistanceIntAutomaton()throws InvalidRuleNumException, InvalidStepNumException {
 		ElementaryRule rule = new ElementaryRule(54);
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Cell offCell = new Cell(CellState.OFF);
@@ -40,7 +40,7 @@ public class AutomatonMeasurementsTest {
 	}
 
 	@Test
-	public void testHammingDistances()throws InvalidRuleNumException {
+	public void testHammingDistances()throws InvalidRuleNumException, InvalidStepNumException {
 		ElementaryRule rule = new ElementaryRule(54);
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Cell offCell = new Cell(CellState.OFF);
@@ -60,7 +60,7 @@ public class AutomatonMeasurementsTest {
 	}
 
 	@Test
-	public void testSubruleCount()throws InvalidRuleNumException {
+	public void testSubruleCount()throws InvalidRuleNumException, InvalidStepNumException {
 		ElementaryRule rule = new ElementaryRule(54);
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Cell offCell = new Cell(CellState.OFF);
@@ -78,7 +78,7 @@ public class AutomatonMeasurementsTest {
 	}
 
 	@Test
-	public void testSubruleCounts()throws InvalidRuleNumException {
+	public void testSubruleCounts()throws InvalidRuleNumException, InvalidStepNumException {
 		ElementaryRule rule = new ElementaryRule(54);
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Cell offCell = new Cell(CellState.OFF);

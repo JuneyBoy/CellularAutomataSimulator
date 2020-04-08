@@ -38,7 +38,7 @@ public class AutomatonMeasurements {
 	 * @param a the Automaton
 	 * @return the number of Cells that would need to be changed for the two Generations to become identical.
 	 */
-	public static int hammingDistance(int stepNum, Automaton a) {
+	public static int hammingDistance(int stepNum, Automaton a)throws InvalidStepNumException {
 		//gets the 2 Generations before and after the stepNum index to compare 
 		Generation g1 = a.getGeneration(stepNum - 1);
 		Generation g2 = a.getGeneration(stepNum + 1);
@@ -51,7 +51,7 @@ public class AutomatonMeasurements {
 	 * @param a the Automaton
 	 * @return an array if ints that holds the hamming distances between each subsequent Generation in the Automaton
 	 */
-	public static int[] hammingDistances(Automaton a) {
+	public static int[] hammingDistances(Automaton a)throws InvalidStepNumException {
 		//creates an array that has a length of the number of Generations in a - 1
 		int[] distancesArray = new int[a.getTotalSteps()];
 		int counter = 0;
@@ -73,7 +73,7 @@ public class AutomatonMeasurements {
 	 * @param a the Automaton
 	 * @return an array of ints that holds the number of times each subrule was used in creating the Generation at stepNum
 	 */
-	public static int[] subruleCount(int stepNum, Automaton a) {
+	public static int[] subruleCount(int stepNum, Automaton a)throws InvalidStepNumException {
 		//creates array that is the same length as the number of subrules the Rule a is following has
 		Rule rule = a.getRule();
 		int[] subruleCountArray = new int[rule.getNumSubrules()];
@@ -115,7 +115,7 @@ public class AutomatonMeasurements {
 	 * @param a the Automaton
 	 * @return a 2D array that holds a subruleCount array for every Generation of a
 	 */
-	public static int[][] subruleCounts(Automaton a) {
+	public static int[][] subruleCounts(Automaton a)throws InvalidStepNumException {
 		int[][] subruleCountsArray = new int[a.getTotalSteps()][a.getRule().getNumSubrules()];
 		
 		//iterates over the number of Generations in a, but does not include the initial Generation

@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Driver {
 
-	public static void main(String[] args)throws InvalidRuleNumException {
+	public static void main(String[] args)throws InvalidRuleNumException, InvalidStepNumException {
 		Rule rule = new ElementaryRule(54);
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Generation initGen = new Generation("..O..");
