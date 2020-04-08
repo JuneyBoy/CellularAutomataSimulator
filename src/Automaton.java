@@ -45,6 +45,9 @@ public class Automaton {
 	 * @return the Generation at the stepNum index
 	 */
 	public Generation getGeneration(int stepNum) {
+		if(stepNum < 0) {
+			throw new IllegalArgumentException();
+		}
 		return generations.get(stepNum);
 	}
 	

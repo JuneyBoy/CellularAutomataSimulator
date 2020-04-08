@@ -30,6 +30,16 @@ public class AutomatonTest {
 		
 		assertEquals(expected.toString(), a.getGeneration(0).toString());
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testGetGenerationError()throws InvalidRuleNumException {
+		Rule rule = new ElementaryRule(15);
+		Generation init = new Generation("..O..");
+		BoundaryConditions bc = new CircularBoundaryConditions();
+		Automaton a = new Automaton(rule, init, bc);
+		
+		Generation gen = a.getGeneration(-1);
+	}
 
 	@Test
 	public void testGetBoundaryConditions()throws InvalidRuleNumException {
