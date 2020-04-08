@@ -10,7 +10,7 @@ public class Driver {
 		System.out.println(rule.toString());
 		System.out.println();
 		Automaton a = new Automaton(rule, initGen, bc);
-		a.evolve(2);
+		a.evolve(5);
 		
 		System.out.println(a.getHistory());
 		System.out.println();

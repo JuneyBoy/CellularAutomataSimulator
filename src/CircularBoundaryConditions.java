@@ -31,7 +31,7 @@ public class CircularBoundaryConditions implements BoundaryConditions{
 		//if the sum of the cellIdx and offset is negative, that means the Cell is "too left",
 		//so we begin accessing the Cells starting from the right
 		if(uncorrectedIndexOfNeighbor < 0) {
-			returnCell = gen.getCell(gen.size() + uncorrectedIndexOfNeighbor);
+			returnCell = gen.getCell(cellsInGen + (uncorrectedIndexOfNeighbor % cellsInGen));
 			return returnCell;
 		}
 		

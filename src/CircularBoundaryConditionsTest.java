@@ -15,6 +15,12 @@ public class CircularBoundaryConditionsTest {
 		assertEquals(CellState.OFF, leftEdgeTest.getState());
 		assertEquals(CellState.OFF, normalTest.getState());
 		assertEquals(CellState.ON, rightEdgeTest.getState());
+		
+		Cell leftReallyEdgeTest = bc.getNeighbor(0, -6, gen);
+		Cell rightReallyEdgeTest = bc.getNeighbor(4, 6, gen);
+		
+		assertEquals(CellState.OFF, leftReallyEdgeTest.getState());
+		assertEquals(CellState.ON, rightReallyEdgeTest.getState());
 	}
 
 }
