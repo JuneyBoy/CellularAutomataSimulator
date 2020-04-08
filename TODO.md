@@ -6,7 +6,7 @@
 
 Given a symbol, '.' and 'O', this method will return the associated state
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -14,7 +14,7 @@ Given a symbol, '.' and 'O', this method will return the associated state
 
 Returns the symbol associated with the CellState
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -25,7 +25,7 @@ Returns the symbol associated with the CellState
 
 The default constructor will make a Cell object with the state as OFF
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -33,7 +33,7 @@ The default constructor will make a Cell object with the state as OFF
 
 This constructor takes a CellState object and assigns the state of that enum type to the state field of Cell
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -41,7 +41,7 @@ This constructor takes a CellState object and assigns the state of that enum typ
 
 Returns the state of the Cell
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -49,7 +49,7 @@ Returns the state of the Cell
 
 Returns the symbol associated with the state of the Cell
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -60,7 +60,7 @@ Returns the symbol associated with the state of the Cell
 
 This constructor makes an EvolvedCell object, which is almost identical to a Cell object except it has the subrule by which it evolved associated with it
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -68,7 +68,7 @@ This constructor makes an EvolvedCell object, which is almost identical to a Cel
 
 Returns the subrule by which the EvolvedCell evolved
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -78,7 +78,7 @@ Returns the subrule by which the EvolvedCell evolved
 
 This constructor takes an array of CellState objects, makes a Cell object for each CellState, and stores each Cell into the cells array
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -86,7 +86,7 @@ This constructor takes an array of CellState objects, makes a Cell object for ea
 
 This constructor takes a String, creates a Cell object for each symbol that is mapped to either CellState.OFF or CellState.ON, and stores each Cell into the cells array
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -94,7 +94,7 @@ This constructor takes a String, creates a Cell object for each symbol that is m
 
 Probably the most straightforward Generation constructor, the constructor copies the states array and stores the copy into the cells array
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -102,7 +102,7 @@ Probably the most straightforward Generation constructor, the constructor copies
 
 Returns the number of Cells in the Generation
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -110,7 +110,7 @@ Returns the number of Cells in the Generation
 
 Returns the Cell at the specified index
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -118,7 +118,7 @@ Returns the Cell at the specified index
 
 Returns the String representation of each Cell symbol in the Generation concatenated together
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -129,7 +129,7 @@ Returns the String representation of each Cell symbol in the Generation concaten
 
 This boundary condition treats the cells as if they are in a circle, with the leftmost Cell's left neighbor being the rightmost Cell and the rightmost Cell's right neighbor being the leftmost Cell
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -137,7 +137,7 @@ This boundary condition treats the cells as if they are in a circle, with the le
 
 Using the idea specified above, this method gets the Cell offset Cells away from the Cell at cellIdx
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -148,7 +148,7 @@ Using the idea specified above, this method gets the Cell offset Cells away from
 
 Unlike the circular boundary condition, the leftmost Cell's left neighbors' state and rightmost Cell's right neighbors' state is fixed by the arguments given to this constructor
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -156,7 +156,7 @@ Unlike the circular boundary condition, the leftmost Cell's left neighbors' stat
 
 Returns the fixed state for cells left of the leftmost Cell
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -164,7 +164,7 @@ Returns the fixed state for cells left of the leftmost Cell
 
 Returns the fixed state for cells right of the rightmost Cell
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -172,7 +172,7 @@ Returns the fixed state for cells right of the rightmost Cell
 
 Using the idea specified above, this method gets the Cell offset Cells away from the Cell at cellIdx
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -183,7 +183,7 @@ Using the idea specified above, this method gets the Cell offset Cells away from
 
 Returns the decimal representation of the Rule number
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -191,7 +191,7 @@ Returns the decimal representation of the Rule number
 
 Given a Generation and BoundaryCondition, this method will evolve the Generation based on the concrete Rule and ruleNum
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -202,7 +202,7 @@ Given a Generation and BoundaryCondition, this method will evolve the Generation
 
 The ElementaryRule specifies that the state of a Cell in the next Generation is based on its current state as well as the states' of its neighbors on the left and right. Because the Cell in the next Generation can either be specified to be OFF or ON and there are 8 possible configurations of the 3 Cells determining the state of the Cell in the next Generation, there are a total of 256 possible rules.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -210,7 +210,7 @@ The ElementaryRule specifies that the state of a Cell in the next Generation is 
 
 As said up above, there are 8 possible configurations of the 3 Cells and the state of the Cell in the next Generation associated with each of those configurations will be referred to as a "subrule". This method will simly return the int 8, as that value is constant for this kind of Rule.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -218,7 +218,7 @@ As said up above, there are 8 possible configurations of the 3 Cells and the sta
 
 This method is called repeatedly by the evolve method in the abstract parent Rule class and returns one EvolvedCell based on the configuration of the given Cell neighborhood and the ruleNum.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -231,7 +231,7 @@ OOO OO. O.O O.. .OO .O. ..O ...
 ```
 with O representing ON states and . representing OFF states.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -243,7 +243,7 @@ with O representing ON states and . representing OFF states.
 
 The TotalisticRule specifies that the state of a Cell in the next Generation is based on how many Cells in a certain span are currently ON. For this program, that span will include the current Cell as well as 2 Cells to its left and right. Because the Cell in the next Generation can either be specified to be OFF or ON and there are can be 6(0-5) ways the Cells can be ON, there are a total of 64 rules.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -251,7 +251,7 @@ The TotalisticRule specifies that the state of a Cell in the next Generation is 
 
 As said up above, there are 6 possible ways the Cells in the span can be ON and the state of the Cell in the next Generation associated with each of those possibilities will be referred to as a "subrule". This method will simply return the int 6, as that value is constant for this kind of Rule.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -259,7 +259,7 @@ As said up above, there are 6 possible ways the Cells in the span can be ON and 
 
 This method is called repeatedly by the evolve method in the abstract parent Rule class and returns one EvolvedCell based on the configuration of the given Cell neighborhood and the ruleNum.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -272,7 +272,7 @@ Returns a sort of table to represent the rule. For example, if the ruleNum = 22 
 ```
 with O representing ON states and . representing OFF states.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -283,7 +283,7 @@ with O representing ON states and . representing OFF states.
 
 Given a type of Rule, a rule number, an initial Generation, and BoundaryCondition this constructor will create an Automaton which can exhibit some pretty complex behavior if evolved
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -291,7 +291,7 @@ Given a type of Rule, a rule number, an initial Generation, and BoundaryConditio
 
 Returns the type of Rule the Automaton is following
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -299,7 +299,7 @@ Returns the type of Rule the Automaton is following
 
 Returns the generation of the Automaton at the specified index.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -307,7 +307,7 @@ Returns the generation of the Automaton at the specified index.
 
 Returns the BoundaryCondition the Automaton is following
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -315,7 +315,7 @@ Returns the BoundaryCondition the Automaton is following
 
 Evolves the Automaton the specified number of times and adds each Generation created to a List
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -323,7 +323,7 @@ Evolves the Automaton the specified number of times and adds each Generation cre
 
 Returns the number of times the Automaton has been evolved(the number of Generations the Automaton has gone through - 1)
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -331,7 +331,7 @@ Returns the number of times the Automaton has been evolved(the number of Generat
 
 Returns a String representation of the most current Generation
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -339,7 +339,7 @@ Returns a String representation of the most current Generation
 
 Returns a String representation of the entire evolution of the Automaton
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -349,7 +349,7 @@ Returns a String representation of the entire evolution of the Automaton
 
 Given 2 Generations, this method returns the number of Cells that would to be changed for the two Generations to become identical.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -357,7 +357,7 @@ Given 2 Generations, this method returns the number of Cells that would to be ch
 
 Returns the number of Cells that would to be changed for the two Generations in the Automaton before and after the given stepNum to become identical.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -365,7 +365,7 @@ Returns the number of Cells that would to be changed for the two Generations in 
 
 Returns an array of length equal to the number of evolutions the Automaton has gone through. The array contains the hammingDistances between subsequent Generations.
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -373,7 +373,7 @@ Returns an array of length equal to the number of evolutions the Automaton has g
 
 Returns an array that contains the how often each subrule was applied to the Generation of the Automaton at the stepNum index
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
 
@@ -381,6 +381,6 @@ Returns an array that contains the how often each subrule was applied to the Gen
 
 Returns a 2D array that contains the arrays created by the last method for each Generation of the Automaton
 - [x] Write method
-- [ ] Write comments
+- [x] Write comments
 - [x] Write test
 - [x] Check if method is working
