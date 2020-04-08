@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class AutomatonMeasurementsTest {
@@ -65,14 +67,7 @@ public class AutomatonMeasurementsTest {
 		
 		int[] expected = {6, 1, 0, 1, 1, 0, 1, 1};
 		
-		assertEquals(expected[0], count[0]);
-		assertEquals(expected[1], count[1]);
-		assertEquals(expected[2], count[2]);
-		assertEquals(expected[3], count[3]);
-		assertEquals(expected[4], count[4]);
-		assertEquals(expected[5], count[5]);
-		assertEquals(expected[6], count[6]);
-		assertEquals(expected[7], count[7]);
+		assertTrue(Arrays.equals(expected, count));
 	}
 
 	@Test
@@ -81,18 +76,18 @@ public class AutomatonMeasurementsTest {
 		BoundaryConditions bc = new CircularBoundaryConditions();
 		Cell offCell = new Cell(CellState.OFF);
 		Cell onCell = new Cell(CellState.ON);
-		Cell[] init = {offCell, offCell, offCell, offCell, offCell, onCell, offCell, offCell, offCell, offCell, offCell};
+		Cell[] init = {offCell, offCell, onCell, offCell, offCell};
 		Generation initGen = new Generation(init);
 		
 		Automaton a = new Automaton(rule, initGen, bc);
 		a.evolve(2);
 		int[][] counts = AutomatonMeasurements.subruleCounts(a);
 		
-		assertEquals(8, counts[0][0]);
-		assertEquals(1, counts[0][1]);
+		int [] expectedArr1 = {2, 1, 1, 0, 1, 0, 0, 0};
+		int [] expectedArr2 = {0, 1, 0, 1, 1, 0, 1, 1};
 		
-		assertEquals(6, counts[1][0]);
-		assertEquals(1, counts[1][1]);
+		assertTrue(Arrays.equals(expectedArr1, counts[0]));
+		assertTrue(Arrays.equals(expectedArr2, counts[1]));
 	}
 
 }

@@ -59,6 +59,6 @@ public class ElementaryRuleTest {
 		StringBuilder secondLine = new StringBuilder(" .   .   O   O   .   O   O   . ");
 		StringBuilder expected = firstLine.append("\n").append(secondLine);
 		
-		assertEquals(expected, rule.toString());
+		assertEquals(expected.toString(), rule.toString());
 	}
 }
