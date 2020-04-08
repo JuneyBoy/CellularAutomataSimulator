@@ -44,9 +44,9 @@ public class Automaton {
 	 * @param stepNum the index of the generations list that needs to be accessed
 	 * @return the Generation at the stepNum index
 	 */
-	public Generation getGeneration(int stepNum) {
+	public Generation getGeneration(int stepNum)throws InvalidStepNumException {
 		if(stepNum < 0) {
-			throw new IllegalArgumentException();
+			throw new InvalidStepNumException();
 		}
 		return generations.get(stepNum);
 	}
@@ -63,7 +63,7 @@ public class Automaton {
 	 * 
 	 * @param numSteps the number of times the Automaton will evolve
 	 */
-	public void evolve(int numSteps) {
+	public void evolve(int numSteps)throws InvalidStepNumException {
 		//for loop iterates numSteps times
 		for(int i = 0; i < numSteps; ++i) {
 			//creates a new Generation using the evolve method of the Rule class
@@ -79,15 +79,16 @@ public class Automaton {
 	 * @return the number of times the Automaton has evolved
 	 */
 	public int getTotalSteps() {
-		return (generations.size() - 1);
+		return idxOfCurrentGen;
 	}
 	
 	/**
 	 * 
 	 * @return the String representation of the most current Generation
 	 */
+	@Override
 	public String toString() {
-		Generation currentGen = this.getGeneration(this.getTotalSteps());
+		Generation currentGen = generations.get(this.getTotalSteps());
 		return currentGen.toString();
 	}
 	
@@ -95,7 +96,7 @@ public class Automaton {
 	 * 
 	 * @return the String representation of the entire evolution of the Automaton
 	 */
-	public String getHistory() {
+	public String getHistory()throws InvalidStepNumException {
 		String returnString = "";
 		//loop iterates over the number of Generations the Automaton has
 		for(int i = 0; i < generations.size(); ++i) {

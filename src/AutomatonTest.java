@@ -15,7 +15,7 @@ public class AutomatonTest {
 	}
 
 	@Test
-	public void testGetGeneration()throws InvalidRuleNumException {
+	public void testGetGeneration()throws InvalidRuleNumException, InvalidStepNumException {
 		Rule rule = new ElementaryRule(15);
 		Generation init = new Generation("..O..");
 		BoundaryConditions bc = new CircularBoundaryConditions();
@@ -26,8 +26,8 @@ public class AutomatonTest {
 		assertEquals(expected.toString(), a.getGeneration(0).toString());
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
-	public void testGetGenerationError()throws InvalidRuleNumException {
+	@Test (expected = InvalidStepNumException.class)
+	public void testGetGenerationError()throws InvalidRuleNumException, InvalidStepNumException {
 		Rule rule = new ElementaryRule(15);
 		Generation init = new Generation("..O..");
 		BoundaryConditions bc = new CircularBoundaryConditions();
@@ -47,7 +47,7 @@ public class AutomatonTest {
 	}
 
 	@Test
-	public void testEvolve()throws InvalidRuleNumException {
+	public void testEvolve()throws InvalidRuleNumException, InvalidStepNumException {
 		Generation init = new Generation(".O.O.O.");
 		Rule elementaryRule = new ElementaryRule(60);
 		Rule totalisticRule = new TotalisticRule(60);
@@ -76,7 +76,7 @@ public class AutomatonTest {
 	}
 
 	@Test
-	public void testGetTotalSteps()throws InvalidRuleNumException {
+	public void testGetTotalSteps()throws InvalidRuleNumException, InvalidStepNumException {
 		Rule rule = new ElementaryRule(15);
 		Generation init = new Generation("..O..");
 		BoundaryConditions bc = new CircularBoundaryConditions();
@@ -87,7 +87,7 @@ public class AutomatonTest {
 	}
 
 	@Test
-	public void testToString()throws InvalidRuleNumException{
+	public void testToString()throws InvalidRuleNumException, InvalidStepNumException{
 		Rule elementaryRule = new ElementaryRule(60);
 		Generation init = new Generation("...O...");
 		BoundaryConditions circularBC = new CircularBoundaryConditions();
@@ -100,7 +100,7 @@ public class AutomatonTest {
 	}
 
 	@Test
-	public void testGetHistory()throws InvalidRuleNumException {
+	public void testGetHistory()throws InvalidRuleNumException, InvalidStepNumException {
 		Rule elementaryRule = new ElementaryRule(60);
 		Generation init = new Generation("...O...");
 		BoundaryConditions circularBC = new CircularBoundaryConditions();
