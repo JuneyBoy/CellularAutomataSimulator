@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 /**
- * This enum type allows a Cell to either be in an OFF or ON state, which with a corresponding character('.' and 'O' respectively)
+ * This enum type allows a Cell to either be in an OFF or ON state, each with a corresponding character('.' and 'O' respectively)
  * 
  * @author Arjun Ganesan
  * @version 1.0

@@ -29,6 +29,7 @@ public class Generation {
 	public Generation(String genAsString) {
 		cells = new Cell[genAsString.length()];
 		for(int i = 0; i < genAsString.length(); ++i) {
+			
 			if(genAsString.charAt(i) != '.' && genAsString.charAt(i) != 'O') {
 				throw new IllegalArgumentException();
 			}
