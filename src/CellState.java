@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.HashMap;
 
 /**
@@ -13,7 +14,7 @@ public enum CellState {
 	ON('O');
 	
 	private char symbol;
-	private static final HashMap<Character, CellState> SYMBOL_TO_MAP = new HashMap<>();
+	private static final Map<Character, CellState> SYMBOL_TO_MAP = new HashMap<>();
 	
 	//HashMap maps the symbols to their respective enum types
 	static {
