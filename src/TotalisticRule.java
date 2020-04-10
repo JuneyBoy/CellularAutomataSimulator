@@ -19,7 +19,7 @@ public class TotalisticRule extends Rule{
 	/**
 	 * 
 	 * @param ruleNum is the totalistic rule
-	 * @throws InvalidRuleNumException with there being 6 subrules and 2 states each subrule can specify, there 64 total elementary rules. This exception throws any ruleNum that isn't between 0 and 255.
+	 * @throws InvalidRuleNumException with there being 6 subrules and 2 states each subrule can specify, there 64 total elementary rules. This exception throws any ruleNum that isn't between 0 and 63.
 	 */
 	public TotalisticRule(int ruleNum) throws InvalidRuleNumException{
 		super(ruleNum);
