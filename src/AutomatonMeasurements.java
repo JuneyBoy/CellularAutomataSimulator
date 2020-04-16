@@ -77,10 +77,24 @@ public class AutomatonMeasurements {
 		//creates array that is the same length as the number of subrules the Rule a is following has
 		Rule rule = a.getRule();
 		int[] subruleCountArray = new int[rule.getNumSubrules()];
+		Generation gen = a.getGeneration(stepNum);
 		
 		//what follows is me essentially recreating the evolution method in the Rule class because I'm unsure how to access EvolvedCells
 		//in a Generation because the getCell method in Generation can only access Cell objects
 		
+		for(int i = 0; i < subruleCountArray.length; ++i) {
+			int subruleCount = 0;
+			for(int j = 0; j < gen.size(); ++j) {
+				if(gen.getCell(j).getSubruleNum() == i) {
+					++subruleCount;
+				}
+			}
+			subruleCountArray[i] = subruleCount;
+		}
+		
+		return subruleCountArray;
+		
+		/**
 		BoundaryConditions bc = a.getBoundaryConditions();
 		//gets the Generation right before the one at the stepNum index
 		Generation workingGen = a.getGeneration(stepNum - 1);
@@ -108,6 +122,7 @@ public class AutomatonMeasurements {
 			subruleCountArray[j] = subruleCount;
 		}
 		return subruleCountArray;
+		**/
 	}
 	
 	/**

@@ -32,6 +32,10 @@ public class Cell {
 		return state;
 	}
 	
+	public int getSubruleNum() {
+		return -1;
+	}
+	
 	public String toString() {
 		return state.toString();
 	}
