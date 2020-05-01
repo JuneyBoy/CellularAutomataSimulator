@@ -75,54 +75,31 @@ public class AutomatonMeasurements {
 	 */
 	public static int[] subruleCount(int stepNum, Automaton a)throws InvalidStepNumException {
 		//creates array that is the same length as the number of subrules the Rule a is following has
+		
 		Rule rule = a.getRule();
 		int[] subruleCountArray = new int[rule.getNumSubrules()];
 		Generation gen = a.getGeneration(stepNum);
 		
-		//what follows is me essentially recreating the evolution method in the Rule class because I'm unsure how to access EvolvedCells
-		//in a Generation because the getCell method in Generation can only access Cell objects
 		
+		//outer for loop iterates over each subrule
 		for(int i = 0; i < subruleCountArray.length; ++i) {
+			//counter keeps track of instances of current subrule used to evolve Cells in Generation
 			int subruleCount = 0;
+			
+			//outer for loop iterates over each Cell in the Generation
 			for(int j = 0; j < gen.size(); ++j) {
-				if(gen.getCell(j).getSubruleNum() == i) {
+				//checks if subrule associated with current EvolvedCell is the same as the subrule being tracked by outer for loop
+				if(((EvolvedCell)gen.getCell(j)).getSubruleNum() == i) {
+					//increments counter if so
 					++subruleCount;
+					
 				}
 			}
+			//stores count in appriopriate array index
 			subruleCountArray[i] = subruleCount;
 		}
 		
 		return subruleCountArray;
-		
-		/**
-		BoundaryConditions bc = a.getBoundaryConditions();
-		//gets the Generation right before the one at the stepNum index
-		Generation workingGen = a.getGeneration(stepNum - 1);
-		EvolvedCell[] cells = new EvolvedCell[workingGen.size()];
-		
-		//basically recreates the Generation at stepNum but is explicitly an EvolvedCell array
-		for(int i = 0; i < workingGen.size(); ++i) {
-			Cell[] neighborhood = rule.getNeighborhood(i, workingGen, bc);
-			cells[i] = rule.evolve(neighborhood);
-		}
-		
-		//once the array is created this outer for loop iterates over the number of subrules there are
-		for(int j = 0; j < subruleCountArray.length; ++j) {
-			//keeps track of how many Cells were evolved using the subrule j
-			int subruleCount = 0;
-			
-			//inner for loop iterates over the length of the Generation
-			for(int k = 0; k < cells.length; ++k) {
-				//if the subrule of the EvolvedCell == j, then subRuleCount is incremented
-				if(j == cells[k].getSubruleNum()) {
-					++subruleCount;
-				}
-			}
-			//subruleCount is stored in the array
-			subruleCountArray[j] = subruleCount;
-		}
-		return subruleCountArray;
-		**/
 	}
 	
 	/**
