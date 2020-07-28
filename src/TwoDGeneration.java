@@ -43,6 +43,7 @@ public class TwoDGeneration {
 				}
 				
 				cells[row][col] = new Cell(CellState.getState(genAsString.charAt(charIdx)));
+				++charIdx;
 			}
 		}
 		
@@ -97,6 +98,7 @@ public class TwoDGeneration {
 			for(Cell cell : rowOfCells) {
 				returnString += cell.toString();
 			}
+			returnString += "/n";
 		}
 		return returnString;
 	}

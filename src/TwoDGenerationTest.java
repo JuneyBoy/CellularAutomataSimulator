@@ -6,32 +6,66 @@ public class TwoDGenerationTest {
 
 	@Test
 	public void testTwoDGenerationCellStateArrayArray() {
-		fail("Not yet implemented");
+		CellState[][] cells = { {CellState.OFF, CellState.ON}, {CellState.ON, CellState.OFF} };
+		TwoDGeneration gen = new TwoDGeneration(cells);
+		
+		assertEquals(CellState.OFF, gen.getCell(0, 0).getState());
+		assertEquals(CellState.ON, gen.getCell(0, 1).getState());
+		assertEquals(CellState.ON, gen.getCell(1, 0).getState());
+		assertEquals(CellState.OFF, gen.getCell(1, 1).getState());
 	}
 
 	@Test
 	public void testTwoDGenerationStringIntInt() {
-		fail("Not yet implemented");
+		String cells = ".O"
+				+ "O.";
+		TwoDGeneration gen = new TwoDGeneration(cells, 2, 2);
+		
+		assertEquals(CellState.OFF, gen.getCell(0, 0).getState());
+		assertEquals(CellState.ON, gen.getCell(0, 1).getState());
+		assertEquals(CellState.ON, gen.getCell(1, 0).getState());
+		assertEquals(CellState.OFF, gen.getCell(1, 1).getState());
+		
 	}
 
 	@Test
 	public void testTwoDGenerationCellArrayArray() {
-		fail("Not yet implemented");
+		Cell[][] cells = {{new Cell(CellState.ON), new Cell(CellState.ON)}, {new Cell(CellState.OFF), new Cell(CellState.OFF)}};
+		TwoDGeneration gen = new TwoDGeneration(cells);
+		
+		assertEquals(CellState.ON, gen.getCell(0, 0).getState());
+		assertEquals(CellState.ON, gen.getCell(0, 1).getState());
+		assertEquals(CellState.OFF, gen.getCell(1, 0).getState());
+		assertEquals(CellState.OFF, gen.getCell(1, 1).getState());
+		
 	}
 
 	@Test
 	public void testNumOfRows() {
-		fail("Not yet implemented");
+		CellState[][] cells = { {CellState.OFF, CellState.ON, CellState.ON}, {CellState.ON, CellState.OFF, CellState.OFF} };
+		
+		TwoDGeneration gen = new TwoDGeneration(cells);
+		
+		assertEquals(2, gen.numOfRows());
+		
 	}
 
 	@Test
 	public void testNumOfCols() {
-		fail("Not yet implemented");
+		CellState[][] cells = { {CellState.OFF, CellState.ON, CellState.ON}, {CellState.ON, CellState.OFF, CellState.ON} };
+		
+		TwoDGeneration gen = new TwoDGeneration(cells);
+		
+		assertEquals(3, gen.numOfCols());
 	}
 
 	@Test
 	public void testSize() {
-		fail("Not yet implemented");
+		CellState[][] cells = { {CellState.OFF, CellState.ON, CellState.ON}, {CellState.ON, CellState.OFF, CellState.ON} };
+		
+		TwoDGeneration gen = new TwoDGeneration(cells);
+		
+		assertEquals(6, gen.size());
 	}
 
 	@Test
@@ -41,7 +75,13 @@ public class TwoDGenerationTest {
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		CellState[][] cells = { {CellState.OFF, CellState.ON, CellState.ON}, {CellState.ON, CellState.OFF, CellState.OFF}, {CellState.OFF, CellState.OFF, CellState.OFF}  };
+		TwoDGeneration gen = new TwoDGeneration(cells);
+		
+		String expectedString = ".OO/n" + "O../n" + ".../n";
+		
+		assertEquals(expectedString, gen.toString());
+		
 	}
 
 }
