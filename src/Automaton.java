@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Automaton {
 	
 	private Rule rule;
-	//Lsit that will hold all Generations of the Automaton
+	//List that will hold all Generations of the Automaton
 	private List<Generation> generations = new ArrayList<Generation>();
 	private BoundaryConditions bc;
 	private int idxOfCurrentGen;

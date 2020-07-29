@@ -36,6 +36,10 @@ public abstract class Rule {
 		return new Generation(newGen);
 	}
 	
+	public TwoDGeneration evolve(TwoDGeneration gen, BoundaryConditions bc) {
+		
+	}
+	
 	/**
 	 * 
 	 * @return the number of subrules the Rule object has
