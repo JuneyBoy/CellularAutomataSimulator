@@ -10,4 +10,15 @@ public interface BoundaryConditions {
 	 * @return the Cell with index cellIdx + offset
 	 */
 	Cell getNeighbor(int cellIdx, int offset, Generation gen);
+	
+	/**
+	 * Return the neighbor of a Cell in a given Generation subject to the 
+	 * boundary conditions.
+	 * @param cellIdx the index of the Cell
+	 * @param rowOffset row of the neighbor relative to the Cell
+	 * @param colOffset col of the neighbor relative to the Cell
+	 * @param gen the 2D Generation
+	 * @return the Cell with index cellIdx + offset
+	 */
+	Cell getNeighbor(int cellRow, int cellCol, int rowOffset, int colOffset, TwoDGeneration gen);
 }

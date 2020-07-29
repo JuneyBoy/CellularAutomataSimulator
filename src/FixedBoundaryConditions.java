@@ -101,20 +101,21 @@ public class FixedBoundaryConditions implements BoundaryConditions{
 	
 	/**
 	 * 
-	 * @param cellIdx the index of the Cell whose neighbor we are trying to access
+	 * @param cellRow the row of the Cell whose neighbor we are trying to access
+	 * @param cellRow the row of the Cell whose neighbor we are trying to access
 	 * @param rowOffset the row of the neighbor relative to the Cell
 	 * @param colOffset the col of the neighbor relative to the Cell
 	 * @param gen the 2D Generation
 	 * @return the Cell with indices (cellIdx + rowOffset, cellIdx + colOffset)
 	 */
-	public Cell getNeighbor(int cellIdx, int rowOffset, int colOffset, TwoDGeneration gen) {
+	public Cell getNeighbor(int cellRow, int cellCol, int rowOffset, int colOffset, TwoDGeneration gen) {
 		
 		Cell returnCell;
 		int rowsInGen = gen.numOfRows();
 		int colsInGen = gen.numOfCols();
 		
-		int rowOfNeighbor = cellIdx + rowOffset;
-		int colOfNeighbor = cellIdx + colOffset;
+		int rowOfNeighbor = cellRow + rowOffset;
+		int colOfNeighbor = cellCol + colOffset;
 		
 		//if the sum of the cellIdx and row offset is negative, that means the Cell is "too left",
 		//so the state of the neighbor is set to the leftBoundaryCondition
