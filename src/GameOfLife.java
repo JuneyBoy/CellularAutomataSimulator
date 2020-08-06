@@ -1,12 +1,11 @@
 
-public class GameOfLife extends Rule {
+public class GameOfLife {
 	
 	private final int NUM_OF_SUBRULES = 3;
 	
 	private final int CELLS_IN_NEIGHBORHOOD = 9;
 	
 	public GameOfLife() {
-		super(-1);
 	}
 	
 	public int getNumSubrules() {
@@ -53,4 +52,27 @@ public class GameOfLife extends Rule {
 		
 		return returnCell;
 	}
+	
+	public TwoDGeneration evolve(TwoDGeneration gen, BoundaryConditions bc) {
+		EvolvedCell[][] newGen = new EvolvedCell[gen.numOfRows()][gen.numOfCols()];
+		
+		for(int row = 0; row < newGen.length; ++row) {
+			for(int col = 0; col < newGen[row].length; ++col) {
+				Cell[] neighborhood = this.getNeighborhood(row, col, gen, bc);
+				newGen[row][col] = this.evolve(neighborhood);
+			}
+		}
+		
+		return new TwoDGeneration(newGen);
+		
+	}
+	
+	public String toString() {
+		String ruleString = "Rule 0: Any live cell with two or three live neighbors survives into the next generation." + "/n";
+		ruleString += "Rule 1: Any dead cell with three or more live neighbors will be reborn in the next generation." + "/n";
+		ruleString += "Rule 2: All other cells will be dead in the next generation.";
+		
+		return ruleString;
+	}
+	
 }
