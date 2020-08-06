@@ -22,5 +22,23 @@ public class CircularBoundaryConditionsTest {
 		assertEquals(CellState.ON, leftReallyEdgeTest.getState());
 		assertEquals(CellState.ON, rightReallyEdgeTest.getState());
 	}
+	
+	@Test
+	public void testGetNeighbor2D() {
+		CircularBoundaryConditions bc = new CircularBoundaryConditions();
+		TwoDGeneration gen = new TwoDGeneration("O.O" + ".O." + "..O", 3, 3);
+		
+		Cell bottomEdgeTest = bc.getNeighbor(2, 1, 1, 0, gen);
+		Cell leftEdgeTest = bc.getNeighbor(1, 0, 0, -1, gen);
+		Cell normalTest = bc.getNeighbor(1, 1, -1, -1, gen);
+		Cell rightEdgeTest = bc.getNeighbor(0, 2, 0, 1, gen);
+		Cell topEdgeTest = bc.getNeighbor(0, 1, -1, 0, gen);
+		
+		assertEquals(CellState.OFF, bottomEdgeTest.getState());
+		assertEquals(CellState.OFF, leftEdgeTest.getState());
+		assertEquals(CellState.ON, normalTest.getState());
+		assertEquals(CellState.ON, rightEdgeTest.getState());
+		assertEquals(CellState.OFF, topEdgeTest.getState());
+	}
 
 }
