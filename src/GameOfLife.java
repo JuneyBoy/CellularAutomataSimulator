@@ -101,8 +101,8 @@ public class GameOfLife {
 	}
 	
 	public String toString() {
-		String ruleString = "Rule 0: Any live cell with two or three live neighbors survives into the next generation." + "/n";
-		ruleString += "Rule 1: Any dead cell with three or more live neighbors will be reborn in the next generation." + "/n";
+		String ruleString = "Rule 0: Any live cell with two or three live neighbors survives into the next generation." + "\n";
+		ruleString += "Rule 1: Any dead cell with three or more live neighbors will be reborn in the next generation." + "\n";
 		ruleString += "Rule 2: All other cells will be dead in the next generation.";
 		
 		return ruleString;

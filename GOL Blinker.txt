@@ -1,0 +1,57 @@
+Rule 0: Any live cell with two or three live neighbors survives into the next generation.
+Rule 1: Any dead cell with three or more live neighbors will be reborn in the next generation.
+Rule 2: All other cells will be dead in the next generation.
+Generation 0: 
+.O.
+.O.
+.O.
+
+Generation 1: 
+...
+OOO
+...
+
+Generation 2: 
+.O.
+.O.
+.O.
+
+Generation 3: 
+...
+OOO
+...
+
+Generation 4: 
+.O.
+.O.
+.O.
+
+Generation 5: 
+...
+OOO
+...
+
+Generation 6: 
+.O.
+.O.
+.O.
+
+Generation 7: 
+...
+OOO
+...
+
+Generation 8: 
+.O.
+.O.
+.O.
+
+Generation 9: 
+...
+OOO
+...
+
+Generation 10: 
+.O.
+.O.
+.O.

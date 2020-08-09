@@ -98,7 +98,7 @@ public class TwoDGeneration {
 			for(Cell cell : rowOfCells) {
 				returnString += cell.toString();
 			}
-			returnString += "/n";
+			returnString += "\n";
 		}
 		return returnString;
 	}

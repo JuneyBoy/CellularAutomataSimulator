@@ -5,13 +5,25 @@ import java.io.IOException;
 public class Driver {
 
 	public static void main(String[] args)throws InvalidRuleNumException, InvalidStepNumException, IOException {
-		Rule rule = new ElementaryRule(54);
 		
-		BoundaryConditions cbc = new CircularBoundaryConditions();
-		Generation initGen;
-		StringBuilder genAsString = new StringBuilder("");
+		//Rule rule = new ElementaryRule(54);
 		
-	
+		BoundaryConditions cbc = new FixedBoundaryConditions(CellState.OFF, CellState.OFF, CellState.OFF, CellState.OFF );
+		TwoDGeneration initGen;
+		String genAsString = ".O." + ".O." + ".O.";
+		
+		initGen = new TwoDGeneration(genAsString, 3, 3);
+		
+		GameOfLife game = new GameOfLife();
+		
+		GOLAutomaton a = new GOLAutomaton(game, initGen, cbc);
+		
+		a.evolve(10);
+		
+		a.writeToFile("GOL Blinker.txt");
+		
+		
+		/**
 		for(int i = 1; i <= 101; ++i) {
 			if(i == 51) {
 				genAsString.append('O');
@@ -28,6 +40,7 @@ public class Driver {
 		a.evolve(100);
 		
 		a.writeToFile("elementary54-100steps-circularbc.txt");
+		**/
 		
 	}
 }
