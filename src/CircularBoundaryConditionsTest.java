@@ -33,12 +33,14 @@ public class CircularBoundaryConditionsTest {
 		Cell normalTest = bc.getNeighbor(1, 1, -1, -1, gen);
 		Cell rightEdgeTest = bc.getNeighbor(0, 2, 0, 1, gen);
 		Cell topEdgeTest = bc.getNeighbor(0, 1, -1, 0, gen);
+		Cell topRightEdgeTest = bc.getNeighbor(0, 0, -1, -1, gen);
 		
 		assertEquals(CellState.OFF, bottomEdgeTest.getState());
 		assertEquals(CellState.OFF, leftEdgeTest.getState());
 		assertEquals(CellState.ON, normalTest.getState());
 		assertEquals(CellState.ON, rightEdgeTest.getState());
 		assertEquals(CellState.OFF, topEdgeTest.getState());
+		assertEquals(CellState.ON, topRightEdgeTest.getState());
 	}
 
 }

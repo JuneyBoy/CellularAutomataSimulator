@@ -70,11 +70,15 @@ public class GameOfLifeTest {
 		
 		BoundaryConditions fbc = new FixedBoundaryConditions(CellState.OFF, CellState.OFF, CellState.OFF, CellState.OFF);
 		
+		BoundaryConditions cbc = new CircularBoundaryConditions();
+		
 		TwoDGeneration evolvedGen = new TwoDGeneration(".O."
 				+ ".O."
 				+ ".O.", 3, 3);
 		
 		assertEquals((game.evolve(gen, fbc)).toString(), evolvedGen.toString());
+		
+		assertEquals((game.evolve(gen, cbc)).toString(), evolvedGen.toString());
 	}
 
 }

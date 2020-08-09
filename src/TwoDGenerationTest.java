@@ -44,9 +44,15 @@ public class TwoDGenerationTest {
 	public void testNumOfRows() {
 		CellState[][] cells = { {CellState.OFF, CellState.ON, CellState.ON}, {CellState.ON, CellState.OFF, CellState.OFF} };
 		
+		String genAsString = "OOO" + "..." + "OOO";
+		
 		TwoDGeneration gen = new TwoDGeneration(cells);
 		
+		TwoDGeneration gen2 = new TwoDGeneration(genAsString, 3, 3);
+		
 		assertEquals(2, gen.numOfRows());
+		
+		assertEquals(3, gen2.numOfRows());
 		
 	}
 

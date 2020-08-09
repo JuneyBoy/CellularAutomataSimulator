@@ -8,11 +8,11 @@ public class Driver {
 		
 		//Rule rule = new ElementaryRule(54);
 		
-		BoundaryConditions cbc = new FixedBoundaryConditions(CellState.OFF, CellState.OFF, CellState.OFF, CellState.OFF );
+		BoundaryConditions cbc = new CircularBoundaryConditions();
 		TwoDGeneration initGen;
-		String genAsString = ".O." + ".O." + ".O.";
+		String genAsString = "..O.." + "..O.." + "..O..";
 		
-		initGen = new TwoDGeneration(genAsString, 3, 3);
+		initGen = new TwoDGeneration(genAsString, 3, 5);
 		
 		GameOfLife game = new GameOfLife();
 		

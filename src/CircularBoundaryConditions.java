@@ -68,7 +68,7 @@ public class CircularBoundaryConditions implements BoundaryConditions{
 		}
 		//if the sum of the cellIdx and col offset is negative, that means the Cell is "too left",
 		//so we begin accessing the Cells starting from the right
-		else if(colOfNeighbor < 0) {
+		if(colOfNeighbor < 0) {
 			colOfNeighbor += colsInGen;
 		}
 		
