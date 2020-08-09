@@ -5,14 +5,11 @@ import java.io.IOException;
 public class Driver {
 
 	public static void main(String[] args)throws InvalidRuleNumException, InvalidStepNumException, IOException {
-		Rule rule = new ElementaryRule(55);
-		Rule rule2 = new TotalisticRule(10);
+		Rule rule = new ElementaryRule(54);
+		
 		BoundaryConditions cbc = new CircularBoundaryConditions();
-		BoundaryConditions fbc = new FixedBoundaryConditions(CellState.OFF, CellState.OFF);
 		Generation initGen;
 		StringBuilder genAsString = new StringBuilder("");
-		
-		System.out.println(rule.toString());
 		
 	
 		for(int i = 1; i <= 101; ++i) {
@@ -28,9 +25,9 @@ public class Driver {
 		
 		Automaton a = new Automaton(rule, initGen, cbc);
 		
-		a.evolve(20);
+		a.evolve(100);
 		
-		System.out.println(a.getHistory());
+		a.writeToFile("elementary54-100steps-circularbc.txt");
 		
 	}
 }

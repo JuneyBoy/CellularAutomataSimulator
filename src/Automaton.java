@@ -1,5 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.io.IOException;
 
 /**
  * This class is the actual Automaton that will implement almost all other classes
@@ -120,4 +122,15 @@ public class Automaton {
 		}
 		return returnString;
 	}
+	
+	public void writeToFile(String fileName) throws IOException, InvalidStepNumException {
+		PrintWriter writer = new PrintWriter(fileName);
+		
+		writer.println(this.rule.toString());
+		writer.print(this.getHistory());
+		
+		writer.close();
+		
+	}
+	
 }
