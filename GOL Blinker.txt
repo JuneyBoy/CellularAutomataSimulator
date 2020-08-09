@@ -7,51 +7,51 @@ Generation 0:
 ..O..
 
 Generation 1: 
+.....
 .OOO.
-.OOO.
-.OOO.
+.....
 
 Generation 2: 
-O...O
-O...O
-O...O
+..O..
+..O..
+..O..
 
 Generation 3: 
-.O.O.
-.O.O.
-.O.O.
+.....
+.OOO.
+.....
 
 Generation 4: 
-OO.OO
-OO.OO
-OO.OO
+..O..
+..O..
+..O..
 
 Generation 5: 
 .....
-.....
+.OOO.
 .....
 
 Generation 6: 
-.....
-.....
-.....
+..O..
+..O..
+..O..
 
 Generation 7: 
 .....
-.....
+.OOO.
 .....
 
 Generation 8: 
-.....
-.....
-.....
+..O..
+..O..
+..O..
 
 Generation 9: 
 .....
-.....
+.OOO.
 .....
 
 Generation 10: 
-.....
-.....
-.....
+..O..
+..O..
+..O..

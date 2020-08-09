@@ -8,7 +8,7 @@ public class Driver {
 		
 		//Rule rule = new ElementaryRule(54);
 		
-		BoundaryConditions cbc = new CircularBoundaryConditions();
+		BoundaryConditions fbc = new FixedBoundaryConditions(CellState.OFF, CellState.OFF, CellState.OFF, CellState.OFF);
 		TwoDGeneration initGen;
 		String genAsString = "..O.." + "..O.." + "..O..";
 		
@@ -16,7 +16,7 @@ public class Driver {
 		
 		GameOfLife game = new GameOfLife();
 		
-		GOLAutomaton a = new GOLAutomaton(game, initGen, cbc);
+		GOLAutomaton a = new GOLAutomaton(game, initGen, fbc);
 		
 		a.evolve(10);
 		
