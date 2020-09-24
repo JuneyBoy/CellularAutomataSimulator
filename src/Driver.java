@@ -6,8 +6,10 @@ public class Driver {
 
 	public static void main(String[] args)throws InvalidRuleNumException, InvalidStepNumException, IOException {
 		
-		//Rule rule = new ElementaryRule(54);
+		Rule rule = new TotalisticRule(30);
+		BoundaryConditions cbc = new CircularBoundaryConditions();
 		
+		/*
 		BoundaryConditions fbc = new FixedBoundaryConditions(CellState.OFF, CellState.OFF, CellState.OFF, CellState.OFF);
 		TwoDGeneration initGen;
 		String genAsString = "..O.." + "..O.." + "..O..";
@@ -19,11 +21,11 @@ public class Driver {
 		GOLAutomaton a = new GOLAutomaton(game, initGen, fbc);
 		
 		a.evolve(10);
+		*/
 		
-		a.writeToFile("GOL Blinker.txt");
+		StringBuilder genAsString = new StringBuilder();
 		
 		
-		/**
 		for(int i = 1; i <= 101; ++i) {
 			if(i == 51) {
 				genAsString.append('O');
@@ -33,14 +35,16 @@ public class Driver {
 			}
 		}
 		
-		initGen = new Generation(genAsString.toString());
+		Generation initGen = new Generation(genAsString.toString());
 		
 		Automaton a = new Automaton(rule, initGen, cbc);
 		
-		a.evolve(100);
+		a.evolve(48);
 		
-		a.writeToFile("elementary54-100steps-circularbc.txt");
-		**/
+		a.writeToFile("totalistic30-48steps-circularbc.txt");
+		
+		System.out.println(a.getHistory());
+		
 		
 	}
 }
